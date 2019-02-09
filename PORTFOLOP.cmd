@@ -1,0 +1,18 @@
+@ECHO OFF
+SET APP_NAME=PORTFOLIO V.1.0 ALPHA 
+TITLE %APP_NAME% 
+
+
+color 0F
+ECHO BOOTING...
+ECHO BRAIN LOADING...
+ECHO ERROR CODE 1
+ECHO OPENING...ERROR-1.log 
+ECHO ===============================================
+ECHO NAME : JINNA CHODCHOY
+ECHO NICKNAME : TIM
+ECHO FACEBOOK : TIM JINNA
+ECHO E_MAIL : JINNATIM@GMAIL.COM
+ECHO TEL : 0904103263
+ECHO ================================================
+pause
