@@ -10,9 +10,7 @@ color 0F
 ECHO HOTSPOT SERVER PROGRAM Final
 ECHO ===============================================================================
 ECHO                             HOTSPOT 
-ECHO                                  SERVER
-ECHO                                 BY 
-ECHO                          :: DUCKSCREEN :: 
+ECHO                             SERVER
 ECHO ===============================================================================
 ECHO Do you want to open HOTSPOT SERVER
 ECHO.
