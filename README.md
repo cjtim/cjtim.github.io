@@ -1,4 +1,4 @@
-# cjtim.github.io
+# Tim's github
 Hey!,you got me.
 This is where i post my project.
 - HOTSPOT PROGRAM FOR WINDOWS ONLY
