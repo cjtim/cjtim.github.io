@@ -10,9 +10,9 @@ jobs:
     steps:
       - name: HTML5 Validator
         uses: Cyb3r-Jak3/html5validator-action@v0.4
-        with:
+        #with:
           # Path of the files to test
-          root: . # default is .
+          # root: . # default is .
           # Extra arguments to test with
           # extra: # optional
           # Format for logging output. Valid values: gnu,xml,json,text
@@ -20,6 +20,6 @@ jobs:
           # Logging Level. Valid values: DEBUG, INFO, WARNING. Default: WARNING
           # log_level: WARNING # optional, default is WARNING
           # Checks css as well
-          css: true # optional
+          # css: true # optional
           # Flag that increase verbose output only used for troubleshooting the action.
           # action_debug: # optional
