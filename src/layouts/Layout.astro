@@ -1,5 +1,6 @@
 ---
 import Navbar from "../components/Navbar.astro";
+import nightwind from "nightwind/helper";
 
 export interface Props {
   title: string;
@@ -17,8 +18,9 @@ const { title } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <script dangerouslySetInnerHTML={{ __html: nightwind.init() }}></script>
   </head>
-  <body>
+  <body class="bg-white">
     <Navbar />
     <slot />
   </body>

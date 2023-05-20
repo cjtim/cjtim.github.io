@@ -16,6 +16,9 @@ dependencies:
   astro:
     specifier: ^2.5.0
     version: 2.5.0
+  nightwind:
+    specifier: ^1.1.13
+    version: 1.1.13(tailwindcss@3.3.2)
   react:
     specifier: ^18.0.0
     version: 18.2.0
@@ -2381,6 +2384,14 @@ packages:
     resolution: {integrity: sha512-BGcqMMJuToF7i1rt+2PWSNVnWIkGCU78jBG3RxO/bZlnZPK2Cmi2QaffxGO/2RvWi9sL+FAiRiXMgsyxQ1DIDA==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
+    dev: false
+
+  /nightwind@1.1.13(tailwindcss@3.3.2):
+    resolution: {integrity: sha512-ipTD+u64LXa03wDf1v0EawdsFC6vtS4xzzXknRd50BBtckDYzZAendkE+4VjSLrwQcTpk0XphWxFk4ORIDdrOg==}
+    peerDependencies:
+      tailwindcss: ^2.0.0 || ^3.0.0
+    dependencies:
+      tailwindcss: 3.3.2
     dev: false
 
   /nlcst-to-string@3.1.1:

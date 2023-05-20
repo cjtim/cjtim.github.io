@@ -1,30 +1,52 @@
-<div class="flex">
-  <div class="">
-    <button id="btn-theme" class="rounded-full bg-indigo-500 text-white p-2">
-      Theme
-    </button>
-  </div>
-</div>
+---
+const navbars = [
+  {
+    label: "Home",
+    id: "btn-theme",
+  },
+  {
+    label: "Theme",
+  },
+];
+---
+
+<nav class="py-2 flex justify-center gap-2">
+  {
+    navbars.map((i) => (
+      <button
+        id={i?.id}
+        class="rounded-full px-4 py-2 text-sm font-semibold text-violet-700 bg-violet-50 p-2 hover:bg-violet-100"
+      >
+        {i.label}
+      </button>
+    ))
+  }
+</nav>
 
 <script>
-  const switchTheme = () => {
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      localStorage.theme === "dark";
-    }
+  import { getTheme, isDark } from "../utils/theme";
 
-    const isDark = localStorage?.theme === "dark";
-    if (isDark) {
+  const switchTheme = () => {
+    console.log(isDark());
+    if (isDark()) {
+      const theme = "light";
       document.documentElement.classList.remove("dark");
-      localStorage.theme = "light";
+      document.getElementById("btn-theme").innerHTML = theme;
+      localStorage.setItem("theme", theme);
     } else {
+      const theme = "dark";
       document.documentElement.classList.add("dark");
-      localStorage.theme = "dark";
+      document.getElementById("btn-theme").innerHTML = theme;
+      localStorage.setItem("theme", theme);
     }
-    // localStorage.removeItem("theme");
   };
 
   const btn = document.querySelector("button[id=btn-theme]");
-  if (btn) {
-    btn.addEventListener("click", switchTheme);
-  }
+  btn?.addEventListener("click", switchTheme);
+
+  const isThemeDark = isDark();
+  isThemeDark
+    ? document.documentElement.classList.add("dark")
+    : document.documentElement.classList.remove("dark");
+  document.getElementById("btn-theme").innerHTML = getTheme();
 </script>
