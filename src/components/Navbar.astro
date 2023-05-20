@@ -1,0 +1,30 @@
+<div class="flex">
+  <div class="">
+    <button id="btn-theme" class="rounded-full bg-indigo-500 text-white p-2">
+      Theme
+    </button>
+  </div>
+</div>
+
+<script>
+  const switchTheme = () => {
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      localStorage.theme === "dark";
+    }
+
+    const isDark = localStorage?.theme === "dark";
+    if (isDark) {
+      document.documentElement.classList.remove("dark");
+      localStorage.theme = "light";
+    } else {
+      document.documentElement.classList.add("dark");
+      localStorage.theme = "dark";
+    }
+    // localStorage.removeItem("theme");
+  };
+
+  const btn = document.querySelector("button[id=btn-theme]");
+  if (btn) {
+    btn.addEventListener("click", switchTheme);
+  }
+</script>
