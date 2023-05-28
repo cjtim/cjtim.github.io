@@ -14,7 +14,7 @@ const features = [
     description:
       "Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.",
   },
-];
+]
 
 export default function Example() {
   return (
@@ -56,5 +56,5 @@ export default function Example() {
         </div>
       </div>
     </div>
-  );
+  )
 }
