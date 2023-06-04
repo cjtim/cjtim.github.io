@@ -1,0 +1,37 @@
+---
+import ThemeSelector from "./ThemeSelector"
+const navbars = [
+  {
+    label: "Tim Jinna",
+    href: "/",
+  },
+  {
+    label: "Skills",
+    href: "#skills",
+  },
+]
+
+const { pathname } = Astro.url
+---
+
+<nav class="drop-shadow-sm border-b-2 top-0 min-w-full fixed backdrop-blur-lg">
+  <div class="py-2 flex justify-center gap-2">
+    {
+      navbars.map((i) => (
+        <button
+          class={
+            (pathname === i.href
+              ? "text-gray-800"
+              : "text-gray-300 hover:text-gray-800") +
+            " rounded-md px-3 py-2 text-sm font-medium"
+          }
+        >
+          <a href={i.href}>{i.label}</a>
+        </button>
+      ))
+    }
+    <ThemeSelector client:load/>
+  </div>
+</nav>
+
+<script></script>
