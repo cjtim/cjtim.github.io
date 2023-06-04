@@ -19,9 +19,7 @@ export default () => {
   //   }
   // }
 
-  const onClick = () => {
-    setShowThemeDropdown(!showThemeDropdown)
-  }
+  const onClick = () => setShowThemeDropdown(!showThemeDropdown)
 
   useEffect(() => {
     const isThemeDark = isDark()
@@ -31,12 +29,12 @@ export default () => {
   }, [])
 
   return (
-    <div class="flex items-center border-l border-slate-200 ml-6 pl-6 dark:border-slate-800">
-      <div class="relative inline-block text-left">
+    <div className="flex items-center border-l border-slate-200 ml-6 pl-6 dark:border-slate-800">
+      <div className="relative inline-block text-left">
         <div>
           <button
             type="button"
-            class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+            className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
             aria-expanded="true"
             aria-haspopup="true"
             onClick={onClick}
@@ -47,17 +45,17 @@ export default () => {
         </div>
         <div
           hidden={!showThemeDropdown}
-          class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+          className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
           role="menu"
           aria-orientation="vertical"
           aria-labelledby="menu-button"
           tabindex="0"
         >
-          <div class="py-1" role="none">
+          <div className="py-1" role="none">
             {/* <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" --> */}
             <a
               href="#"
-              class="text-gray-700 block px-4 py-2 text-sm"
+              className="text-gray-700 block px-4 py-2 text-sm"
               role="menuitem"
               tabindex="-1"
               id="menu-item-0"
@@ -66,7 +64,7 @@ export default () => {
             </a>
             <a
               href="#"
-              class="text-gray-700 block px-4 py-2 text-sm"
+              className="text-gray-700 block px-4 py-2 text-sm"
               role="menuitem"
               tabindex="-1"
               id="menu-item-1"
@@ -75,7 +73,7 @@ export default () => {
             </a>
             <a
               href="#"
-              class="text-gray-700 block px-4 py-2 text-sm"
+              className="text-gray-700 block px-4 py-2 text-sm"
               role="menuitem"
               tabindex="-1"
               id="menu-item-2"
@@ -87,12 +85,12 @@ export default () => {
       </div>
       <a
         href="https://github.com/cjtim"
-        class="ml-6 block text-slate-400 hover:text-slate-500 dark:hover:text-slate-300"
+        className="ml-6 block text-slate-400 hover:text-slate-500 dark:hover:text-slate-300"
       >
-        <span class="sr-only">cjtim on GitHub</span>
+        <span className="sr-only">cjtim on GitHub</span>
         <svg
           viewBox="0 0 16 16"
-          class="w-5 h-5"
+          className="w-5 h-5"
           fill="currentColor"
           aria-hidden="true"
         >
