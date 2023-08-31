@@ -4,20 +4,6 @@ import { MdDarkMode } from "react-icons/md"
 
 export default () => {
   const [showThemeDropdown, setShowThemeDropdown] = useState(false)
-  // const switchTheme = () => {
-  //   console.log(isDark())
-  //   if (isDark()) {
-  //     const theme = "light"
-  //     document.documentElement.classList.remove("dark")
-  //     document.getElementById("btn-theme").innerHTML = theme
-  //     localStorage.setItem("theme", theme)
-  //   } else {
-  //     const theme = "dark"
-  //     document.documentElement.classList.add("dark")
-  //     document.getElementById("btn-theme").innerHTML = theme
-  //     localStorage.setItem("theme", theme)
-  //   }
-  // }
 
   const onClick = () => setShowThemeDropdown(!showThemeDropdown)
 

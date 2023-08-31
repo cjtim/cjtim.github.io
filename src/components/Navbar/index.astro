@@ -6,6 +6,10 @@ const navbars = [
     href: "/",
   },
   {
+    label: "Tech",
+    href: "/tech",
+  },
+  {
     label: "Skills",
     href: "#skills",
   },
@@ -14,23 +18,23 @@ const navbars = [
 const { pathname } = Astro.url
 ---
 
-<nav class="drop-shadow-sm border-b-2 top-0 min-w-full fixed backdrop-blur-lg">
-  <div class="py-2 flex justify-center gap-2">
+<nav class="flex justify-center fixed w-full">
+  <div class="flex gap-2 bg-white rounded-3xl m-4">
     {
       navbars.map((i) => (
         <button
           class={
             (pathname === i.href
-              ? "text-gray-800"
+              ? "text-black"
               : "text-gray-300 hover:text-gray-800") +
-            " rounded-md px-3 py-2 text-sm font-medium"
+            " rounded-full p-4 text-sm font-medium"
           }
         >
           <a href={i.href}>{i.label}</a>
         </button>
       ))
     }
-    <ThemeSelector client:load />
+    <!-- <ThemeSelector client:load /> -->
   </div>
 </nav>
 
