@@ -1,12 +1,18 @@
 ---
 import Layout from "../layouts/Layout.astro"
 import Hero from "../components/Hero.astro"
+import Experience from "src/components/Experience.astro"
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Hi !">
   <main>
     <Hero />
+    <Experience />
   </main>
 </Layout>
 
-<script></script>
+<style is:global>
+html {
+  scroll-behavior: smooth;
+}
+</style>
