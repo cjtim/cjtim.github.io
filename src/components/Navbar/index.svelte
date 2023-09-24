@@ -25,17 +25,19 @@
 <nav class="flex justify-center fixed w-full">
   <div class="flex gap-2 bg-white rounded-3xl m-4">
     {#each navbars as i, idx}
+    <a href={i.href}>
       <button
-        class={(idx === current
-          ? "text-black"
-          : "text-gray-300 hover:text-gray-800") +
-          " rounded-full p-4 text-sm font-medium"}
-        on:click={() => {
-          current = idx
-        }}
-      >
-        <a href={i.href}>{i.label}</a>
-      </button>
+          class={(idx === current
+            ? "text-black"
+            : "text-gray-300 hover:text-gray-800") +
+            " rounded-full p-4 text-sm font-medium"}
+          on:click={() => {
+            current = idx
+          }}
+        >
+          {i.label}
+        </button>
+    </a>
     {/each}
     <!-- <ThemeSelector client:load /> -->
   </div>
