@@ -15,5 +15,14 @@ export default defineConfig({
       // Example: Force a broken package to skip SSR processing, if needed
       noExternal: ['react-icons']
     }
-  }
+  },
+  plugins: ['prettier-plugin-astro'],
+  overrides: [
+    {
+      files: '*.astro',
+      options: {
+        parser: 'astro',
+      },
+    },
+  ],
 });

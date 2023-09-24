@@ -1,12 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro"
 import Hero from "../components/Hero.astro"
-import Experience from "src/components/Experience.astro"
+import Experience from "src/components/Experience/index.astro"
+import ProfessionalExp from "src/components/ProfessionalExp/index.astro";
 ---
 
 <Layout title="Hi !">
   <main>
     <Hero />
+    <ProfessionalExp/>
     <Experience />
   </main>
 </Layout>
