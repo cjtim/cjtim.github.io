@@ -1,21 +1,34 @@
-import { useEffect, useState } from "react"
+import {
+  useEffect,
+  useState,
+} from "react"
 import { isDark } from "@utils/theme"
 import { MdDarkMode } from "react-icons/md"
 
 export default () => {
-  const [showThemeDropdown, setShowThemeDropdown] = useState(false)
+  const [
+    showThemeDropdown,
+    setShowThemeDropdown,
+  ] = useState(false)
 
-  const onClick = () => setShowThemeDropdown(!showThemeDropdown)
+  const onClick = () =>
+    setShowThemeDropdown(
+      !showThemeDropdown,
+    )
 
   useEffect(() => {
     const isThemeDark = isDark()
     isThemeDark
-      ? document.documentElement.classList.add("dark")
-      : document.documentElement.classList.remove("dark")
+      ? document.documentElement.classList.add(
+          "dark",
+        )
+      : document.documentElement.classList.remove(
+          "dark",
+        )
   }, [])
 
   return (
-    <div className="flex items-center border-l border-slate-200 ml-6 pl-6 dark:border-slate-800">
+    <div className="ml-6 flex items-center border-l border-slate-200 pl-6 dark:border-slate-800">
       <div className="relative inline-block text-left">
         <div>
           <button
@@ -37,11 +50,14 @@ export default () => {
           aria-labelledby="menu-button"
           tabIndex="0"
         >
-          <div className="py-1" role="none">
+          <div
+            className="py-1"
+            role="none"
+          >
             {/* <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" --> */}
             <a
               href="#"
-              className="text-gray-700 block px-4 py-2 text-sm"
+              className="block px-4 py-2 text-sm text-gray-700"
               role="menuitem"
               tabindex="-1"
               id="menu-item-0"
@@ -50,7 +66,7 @@ export default () => {
             </a>
             <a
               href="#"
-              className="text-gray-700 block px-4 py-2 text-sm"
+              className="block px-4 py-2 text-sm text-gray-700"
               role="menuitem"
               tabindex="-1"
               id="menu-item-1"
@@ -59,7 +75,7 @@ export default () => {
             </a>
             <a
               href="#"
-              className="text-gray-700 block px-4 py-2 text-sm"
+              className="block px-4 py-2 text-sm text-gray-700"
               role="menuitem"
               tabindex="-1"
               id="menu-item-2"
@@ -73,10 +89,12 @@ export default () => {
         href="https://github.com/cjtim"
         className="ml-6 block text-slate-400 hover:text-slate-500 dark:hover:text-slate-300"
       >
-        <span className="sr-only">cjtim on GitHub</span>
+        <span className="sr-only">
+          cjtim on GitHub
+        </span>
         <svg
           viewBox="0 0 16 16"
-          className="w-5 h-5"
+          className="h-5 w-5"
           fill="currentColor"
           aria-hidden="true"
         >

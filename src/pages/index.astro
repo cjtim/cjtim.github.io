@@ -2,19 +2,23 @@
 import Layout from "../layouts/Layout.astro"
 import Hero from "../components/Hero.astro"
 import Experience from "src/components/Experience/Experience.astro"
-import ProfessionalExp from "src/components/Experience/ProfessionalExp.astro";
+import ProfessionalExp from "src/components/Experience/ProfessionalExp.astro"
+import Tech from "src/components/Tech"
 ---
 
 <Layout title="Hi !">
-  <main>
+  <main
+    class="w-full bg-gray-100 text-black"
+  >
     <Hero />
-    <ProfessionalExp/>
+    <!-- <Tech /> -->
+    <ProfessionalExp />
     <Experience />
   </main>
 </Layout>
 
 <style is:global>
-html {
-  scroll-behavior: smooth;
-}
+  html {
+    scroll-behavior: smooth;
+  }
 </style>
