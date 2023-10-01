@@ -1,10 +1,10 @@
 ---
 import Navbar from "../components/Navbar/index.astro"
+import Analytics from "./_analytics.astro"
 
 export interface Props {
   title: string
 }
-const { hostname } = Astro.url
 
 const { title } = Astro.props
 ---
@@ -15,7 +15,7 @@ const { title } = Astro.props
     <meta charset="UTF-8" />
     <meta
       name="description"
-      content="Astro description"
+      content="Just a noob web engineer who like coding and owning home server. Coding is art!"
     />
     <meta
       name="viewport"
@@ -37,8 +37,11 @@ const { title } = Astro.props
     />
     <link
       href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet" defer
+      rel="stylesheet"
+      defer
+      async
     />
+    <Analytics />
     <meta
       name="generator"
       content={Astro.generator}
