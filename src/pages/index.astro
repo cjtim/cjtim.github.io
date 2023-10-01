@@ -4,6 +4,7 @@ import Hero from "../components/Hero.astro"
 import Experience from "src/components/Experience/Experience.astro"
 import Showcases from "src/components/Showcases.svelte"
 import Counter from "src/components/counter.svelte"
+import Aboutme from "src/components/Aboutme.astro"
 ---
 
 <Layout title="Hi !">
@@ -11,6 +12,7 @@ import Counter from "src/components/counter.svelte"
     class="w-full bg-gray-100 text-black"
   >
     <Hero />
+    <Aboutme />
     <Experience />
     <Showcases
       contents={[
@@ -44,7 +46,8 @@ import Counter from "src/components/counter.svelte"
   html {
     scroll-behavior: smooth;
   }
-  html, body{
+  html,
+  body {
     overflow-x: hidden;
   }
 </style>

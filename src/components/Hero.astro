@@ -20,18 +20,18 @@ const socialMedias = [
 ---
 
 <div
-  class="flex w-full flex-wrap items-center justify-around gap-8 bg-black p-8 text-white"
+  class="flex w-full flex-wrap items-center justify-around gap-8 bg-gradient-to-tr from-green-500 to-blue-400 p-8 text-white"
 >
   <div
-    class="flex w-3/5 md:w-2/5 flex-col text-center"
+    class="flex w-3/5 flex-col items-center text-center md:w-2/5"
   >
     <img
       src="./profile-ai.png"
       class="rounded-full shadow-xl"
     />
     <a class="font-qsan italic">
-      "A programmer, enjoying write a
-      code his laptop, export in cute
+      "A Software Engineer who enjoying
+      write a code his laptop in cute
       cartoon style" - AI Generated
     </a>
   </div>
@@ -44,23 +44,25 @@ const socialMedias = [
       Tim
     </p>
     <p
-      class="font-qsan break-words text-5xl font-semibold"
+      class="break-words font-qsan text-5xl font-semibold"
     >
       Jinna Chodchoy
     </p>
-    <p class="font-qsan text-3xl">
+    <p
+      class="font-qsan text-3xl"
+    >
       A Software Engineer
     </p>
 
     <div
       class="flex h-24 items-center
-        justify-center gap-4 rounded-3xl bg-gray-800
+        justify-center gap-4 rounded-3xl bg-gray-200
         p-8"
     >
       {
         socialMedias.map((item) => (
           <a
-            class="h-12 w-12 fill-white hover:fill-gray-400"
+            class="h-12 w-12 fill-gray-800 hover:fill-gray-400 "
             href={item.href}
             target="_blank"
             rel="noopener noreferrer"
@@ -71,8 +73,8 @@ const socialMedias = [
       }
     </div>
     <button
-    class="rounded-full bg-white p-2 text-black"
-    >Resumé</button
+      class="rounded-full bg-white p-2 text-black"
+      >Resumé</button
     >
     <!-- <Modal id="gmail" client:only/> -->
   </div>
