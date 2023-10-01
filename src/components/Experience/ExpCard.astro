@@ -10,25 +10,24 @@ const {
 ---
 
 <div class="flex flex-wrap">
-  <div class="flex basis-1/5 flex-col">
+  <div class="flex basis-1/4 flex-col">
     <a class="text-xl">{heading}</a>
     <a>{company}</a>
     <a>{timeline}</a>
   </div>
 
   <div
-    class="flex basis-1/6 flex-col items-center"
+    class="flex basis-1/5 flex-col items-center"
   >
     <div
-      class="w-8 rounded-full border border-gray-500 fill-white"
+      class="w-8 rounded-full border border-gray-500 fill-gray-300"
     >
       <CircleSvg />
     </div>
     {
       line && (
         <div
-          class="w-px overflow-visible border"
-          style="height: 150%;"
+          class="w-px overflow-visible border -mb-3.5 h-full"
         />
       )
     }

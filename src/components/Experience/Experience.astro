@@ -1,21 +1,31 @@
 ---
 import ExpCard from "./ExpCard.astro"
 import AgodaIntern from "./contents/AgodaIntern.astro"
+import Agoda from "./contents/Agoda.astro"
 import KollectiveOne from "./contents/KollectiveOne.astro"
 ---
 
 <div
   id="hero"
-  class="flex flex-col gap-8 p-8"
+  class="container mx-auto my-8 flex flex-col items-center gap-8 rounded-3xl bg-white p-8"
 >
   <p class="text-2xl">Experiences</p>
 
   <div class="flex flex-col gap-4 px-8">
     <ExpCard
-      heading="DevOps Engineer Internship"
+      heading="Software Engineer"
+      company="Agoda"
+      timeline="April 2022 - July 2023"
+      Description={Agoda}
+      line
+    />
+
+    <ExpCard
+      heading="Software Engineer Internship"
       company="Agoda"
       timeline="April 2021 - Mar 2022"
       Description={AgodaIntern}
+      line
     />
     <ExpCard
       heading="Software Engineer (Contract)"
