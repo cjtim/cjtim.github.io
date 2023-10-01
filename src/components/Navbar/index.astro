@@ -1,68 +1,108 @@
 ---
-  // import ThemeSelector from "./ThemeSelector"
-  const navbars = [
-    {
-      label: "Tim Jinna",
-      href: "/#",
-    },
-    {
-      label: "Exp",
-      href: "/#exp",
-    },
-    {
-      label: "Tech",
-      href: "/tech",
-    },
-    {
-      label: "Skills",
-      href: "#skills",
-    },
-  ]
- 
+// import ThemeSelector from "./ThemeSelector"
+const navbars = [
+  {
+    label: "Tim Jinna",
+    href: "/#",
+  },
+  {
+    label: "Exp",
+    href: "/#exp",
+  },
+  {
+    label: "Tech",
+    href: "/tech",
+  },
+  {
+    label: "Skills",
+    href: "#skills",
+  },
+]
 ---
 
 <nav
   class="flex w-full justify-center border-b-2 border-gray-100 bg-white"
 >
-  <div class="m-2 flex flex-wrap gap-2" id="btnBar">
-    
-    {navbars.map((i, idx) =>
-      <a href={i.href} onclick={`highlightBtn(${idx})`}>
-        <button
-          id={`navbar-${idx}`}
-          class={"text-gray-300 hover:text-gray-800" +
-            " rounded-full p-4 text-sm font-medium"}
+  <div
+    class="m-2 flex flex-wrap gap-2"
+    id="btnBar"
+  >
+    {
+      navbars.map((i, idx) => (
+        <a
+          href={i.href}
+          onclick={`highlightBtn(${idx})`}
         >
-          {i.label}
-        </button>
-      </a>
-    )}
-     <script type="text/javascript">
+          <button
+            id={`navbar-${idx}`}
+            class={
+              "text-gray-300 hover:text-gray-800" +
+              " rounded-full p-4 text-sm font-medium"
+            }
+          >
+            {i.label}
+          </button>
+        </a>
+      ))
+    }
+    <script type="text/javascript">
       function highlightBtn(index) {
-       const elements = document.querySelectorAll("[id^=navbar]")
-       console.log(index,elements, elements.length)
-       for(let i = 0; i < elements.length; i++) {
-         const e = document
-         if(i == index) {
-           console.log("add black", i)
-           elements[i].classList.remove("text-gray-300")
-           elements[i].classList.add("text-black")
-         } else {
-           elements[i].classList.add("text-gray-300")
-           elements[i].classList.remove("text-black")
-         }
-       }
-       
-       console.log(document.location.hash)
-     }
-     const curretBtn = document.querySelectorAll(`a[href='/#${document.location.hash}']`)
-     console.log(curretBtn)
-     if (curretBtn[0]){
-      console.log(curretBtn[0])
-       curretBtn[0].classList.add("text-black")
-       curretBtn[0].classList.remove("text-gray-300")
-     } 
-     </script>
+        const elements =
+          document.querySelectorAll(
+            "[id^=navbar]",
+          )
+        console.log(
+          index,
+          elements,
+          elements.length,
+        )
+        for (
+          let i = 0;
+          i < elements.length;
+          i++
+        ) {
+          const e = document
+          if (i == index) {
+            console.log("add black", i)
+            elements[
+              i
+            ].classList.remove(
+              "text-gray-300",
+            )
+            elements[i].classList.add(
+              "text-black",
+            )
+          } else {
+            elements[i].classList.add(
+              "text-gray-300",
+            )
+            elements[
+              i
+            ].classList.remove(
+              "text-black",
+            )
+          }
+        }
+
+        console.log(
+          document.location.hash,
+        )
+      }
+      const curretBtn =
+        document.querySelectorAll(
+          `a[href='/#${document.location.hash}']`,
+        )
+      console.log(curretBtn)
+      if (curretBtn[0]) {
+        console.log(curretBtn[0])
+        curretBtn[0].classList.add(
+          "text-black",
+        )
+        curretBtn[0].classList.remove(
+          "text-gray-300",
+        )
+      }
+    </script>
     <!-- <ThemeSelector client:load /> -->
   </div>
 </nav>

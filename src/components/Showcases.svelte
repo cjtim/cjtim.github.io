@@ -7,7 +7,9 @@
   }[]
   function focus(index: number) {
     contents[index].focused = true
-    document.location.hash = `navbar-${index+1}`
+    document.location.hash = `navbar-${
+      index + 1
+    }`
   }
 </script>
 
@@ -19,8 +21,6 @@
   <div
     class="flex w-full flex-col items-center gap-2"
   >
-   
-
     <div
       class="relative flex w-full snap-x snap-mandatory gap-6 overflow-auto scroll-smooth"
     >
@@ -32,7 +32,7 @@
           id={`slides-${i + 1}`}
           class="w-4/5 shrink-0 scale-100 snap-center rounded-lg shadow-xl
           "
-          >
+        >
           <img
             src={content.img}
             alt={content.title}

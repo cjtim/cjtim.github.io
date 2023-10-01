@@ -1,71 +1,79 @@
 ---
 import GitHubSvg from "./svgs/GitHubSvg.astro"
 import LinkedIn from "./svgs/LinkedIn.astro"
+import GmailSvg from "./svgs/GmailSvg.astro"
+// import Modal from "./Modal/index.svelte"
+const socialMedias = [
+  {
+    icon: GitHubSvg,
+    href: "https://github.com/cjtim",
+  },
+  {
+    icon: LinkedIn,
+    href: "https://www.linkedin.com/in/jinna-chodchoy/",
+  },
+  {
+    icon: GmailSvg,
+    href: "mailto:jinnatim@gmail.com",
+  },
+]
 ---
 
 <div
-  class="flex w-full bg-black text-white"
+  class="flex w-full flex-wrap items-center justify-around gap-8 bg-black p-8 text-white"
 >
   <div
-    class="m-48 flex w-full content-center items-center justify-between"
+    class="flex w-2/5 flex-col text-center"
   >
-    <div
-      class="flex w-2/5 flex-col text-center"
+    <img
+      src="./profile-ai.png"
+      class="rounded-full shadow-xl"
+    />
+    <a class="font-qsan italic">
+      "A programmer, enjoying write a
+      code his laptop, export in cute
+      cartoon style" - AI Generated
+    </a>
+  </div>
+  <div
+    class="flex flex-col gap-8 md:items-end"
+  >
+    <p
+      class="font-qsan text-5xl font-bold"
     >
-      <img
-        src="./profile-ai.png"
-        class="rounded-full shadow-xl"
-      />
-      <a class="font-qsan italic">
-        "A programmer, enjoying write a
-        code his laptop, export in cute
-        cartoon style" - AI Generated
-      </a>
-    </div>
-    <div
-      class="flex flex-col items-end gap-8"
+      Tim
+    </p>
+    <p
+      class="font-qsan break-words text-5xl font-semibold"
     >
-      <p
-        class="font-qsan text-5xl font-bold"
-      >
-        Tim
-      </p>
-      <p
-        class="font-qsan text-5xl font-semibold"
-      >
-        Jinna Chodchoy
-      </p>
-      <p class="font-qsan text-3xl">
-        A Software Engineer
-      </p>
+      Jinna Chodchoy
+    </p>
+    <p class="font-qsan text-3xl">
+      A Software Engineer
+    </p>
 
-      <div
-        class="flex h-24 items-center
+    <div
+      class="flex h-24 items-center
         justify-center gap-4 rounded-3xl bg-gray-800
         p-8"
-      >
-        <a
-          class="h-12 w-12 fill-white hover:fill-gray-400"
-          href="https://www.linkedin.com/in/jinna-chodchoy/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <LinkedIn />
-        </a>
-
-        <a
-          class="h-12 w-12 fill-white hover:fill-gray-400"
-          href="https://github.com/cjtim"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <GitHubSvg />
-        </a>
-      </div>
-      <button
-        class="rounded-full bg-white p-2 text-black"
-        >Resumé</button
-      >
+    >
+      {
+        socialMedias.map((item) => (
+          <a
+            class="h-12 w-12 fill-white hover:fill-gray-400"
+            href={item.href}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <item.icon />
+          </a>
+        ))
+      }
     </div>
+    <button
+    class="rounded-full bg-white p-2 text-black"
+    >Resumé</button
+    >
+    <!-- <Modal id="gmail" client:only/> -->
   </div>
 </div>

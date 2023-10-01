@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro"
 import Hero from "../components/Hero.astro"
 import Experience from "src/components/Experience/Experience.astro"
 import Showcases from "src/components/Showcases.svelte"
-import Counter from "src/components/counter.svelte";
+import Counter from "src/components/counter.svelte"
 ---
 
 <Layout title="Hi !">
@@ -12,32 +12,39 @@ import Counter from "src/components/counter.svelte";
   >
     <Hero />
     <Experience />
-    <Showcases contents={[
-      {
-        img: "https://images.unsplash.com/photo-1465572089651-8fde36c892dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2666&q=80",
-        title: "My first project",
-        description: "This project i Test"
-      },
-      {
-        img: "https://images.unsplash.com/photo-1465572089651-8fde36c892dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2666&q=80",
-        title: "My first project",
-        description: "This project i Test"
-      },
-      {
-        img: "https://images.unsplash.com/photo-1465572089651-8fde36c892dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2666&q=80",
-      },
-      {
-        img: "https://images.unsplash.com/photo-1465572089651-8fde36c892dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2666&q=80",
-      },
-      {
-        img: "https://images.unsplash.com/photo-1465572089651-8fde36c892dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2666&q=80",
-      },
-    ]}/>
+    <Showcases
+      contents={[
+        {
+          img: "https://images.unsplash.com/photo-1465572089651-8fde36c892dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2666&q=80",
+          title: "My first project",
+          description:
+            "This project i Test",
+        },
+        {
+          img: "https://images.unsplash.com/photo-1465572089651-8fde36c892dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2666&q=80",
+          title: "My first project",
+          description:
+            "This project i Test",
+        },
+        {
+          img: "https://images.unsplash.com/photo-1465572089651-8fde36c892dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2666&q=80",
+        },
+        {
+          img: "https://images.unsplash.com/photo-1465572089651-8fde36c892dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2666&q=80",
+        },
+        {
+          img: "https://images.unsplash.com/photo-1465572089651-8fde36c892dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2666&q=80",
+        },
+      ]}
+    />
   </main>
 </Layout>
 
 <style is:global>
   html {
     scroll-behavior: smooth;
+  }
+  html, body{
+    overflow-x: hidden;
   }
 </style>

@@ -11,9 +11,17 @@ const {
 
 <div class="flex flex-wrap">
   <div class="flex basis-1/4 flex-col">
-    <a class="font-qsan text-xl font-bold">{heading}</a>
-    <a class="font-qsan text-lg font-semibold">{company}</a>
-    <a class="font-qsan text-lg">{timeline}</a>
+    <a
+      class="font-qsan text-xl font-bold"
+      >{heading}</a
+    >
+    <a
+      class="font-qsan text-lg font-semibold"
+      >{company}</a
+    >
+    <a class="font-qsan text-lg"
+      >{timeline}</a
+    >
   </div>
 
   <div
@@ -26,14 +34,12 @@ const {
     </div>
     {
       line && (
-        <div
-          class="w-px overflow-visible border -mb-3.5 h-full"
-        />
+        <div class="-mb-3.5 h-full w-px overflow-visible border" />
       )
     }
   </div>
   <div class="basis-1/2">
-    <article class="prose ">
+    <article class="prose">
       <Description />
     </article>
   </div>
