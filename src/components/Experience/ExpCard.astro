@@ -9,8 +9,10 @@ const {
 } = Astro.props
 ---
 
-<div class="flex flex-wrap">
-  <div class="flex basis-1/4 flex-col">
+<div class="flex flex-wrap gap-4">
+  <div
+    class="flex basis-full flex-col md:basis-1/4"
+  >
     <a
       class="font-qsan text-xl font-bold"
       >{heading}</a
@@ -25,7 +27,12 @@ const {
   </div>
 
   <div
-    class="flex w-28 flex-col items-center"
+    class="-mb-3.5 block h-full w-full overflow-visible border md:hidden"
+  >
+  </div>
+
+  <div
+    class="hidden w-28 flex-col items-center md:flex"
   >
     <div
       class="w-8 rounded-full fill-gray-300"
@@ -38,9 +45,11 @@ const {
       )
     }
   </div>
+
   <div class="basis-1/2">
     <article class="prose">
       <Description />
     </article>
   </div>
+
 </div>
