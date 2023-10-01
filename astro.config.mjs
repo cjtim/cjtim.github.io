@@ -3,10 +3,12 @@ import tailwind from "@astrojs/tailwind";
 import react from "@astrojs/react";
 import vercel from "@astrojs/vercel/serverless";
 import svelte from "@astrojs/svelte";
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), react(), svelte()],
+  site: 'https://www.cjtim.com',
+  integrations: [tailwind(), react(), svelte(), sitemap()],
   output: "server",
   adapter: vercel(),
   vite: {
