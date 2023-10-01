@@ -11,16 +11,16 @@ const {
 
 <div class="flex flex-wrap">
   <div class="flex basis-1/4 flex-col">
-    <a class="text-xl">{heading}</a>
-    <a>{company}</a>
-    <a>{timeline}</a>
+    <a class="font-qsan text-xl font-bold">{heading}</a>
+    <a class="font-qsan text-lg font-semibold">{company}</a>
+    <a class="font-qsan text-lg">{timeline}</a>
   </div>
 
   <div
-    class="flex basis-1/5 flex-col items-center"
+    class="flex w-28 flex-col items-center"
   >
     <div
-      class="w-8 rounded-full border border-gray-500 fill-gray-300"
+      class="w-8 rounded-full fill-gray-300"
     >
       <CircleSvg />
     </div>
@@ -33,7 +33,7 @@ const {
     }
   </div>
   <div class="basis-1/2">
-    <article class="prose lg:prose-xl">
+    <article class="prose ">
       <Description />
     </article>
   </div>
