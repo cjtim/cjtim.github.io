@@ -23,13 +23,16 @@ const socialMedias = [
   class="flex w-full flex-wrap items-center justify-around gap-8 bg-gradient-to-tr from-green-500 to-blue-400 p-8 text-white"
 >
   <div
-    class="flex w-3/5 flex-col items-center text-center md:w-2/5"
+    class="flex w-5/6 flex-col items-center text-center sm:w-2/5"
   >
     <img
       src="./profile-ai.png"
       class="rounded-full shadow-xl"
+      alt={`"A Software Engineer enjoying
+      write a code his laptop in cute
+      cartoon style" - AI Generated`}
     />
-    <a class="font-qsan italic p-2">
+    <a class="p-2 font-qsan italic">
       "A Software Engineer enjoying
       write a code his laptop in cute
       cartoon style" - AI Generated
@@ -48,9 +51,7 @@ const socialMedias = [
     >
       Jinna Chodchoy
     </p>
-    <p
-      class="font-qsan text-3xl"
-    >
+    <p class="font-qsan text-3xl">
       A Software Engineer
     </p>
 
@@ -66,6 +67,7 @@ const socialMedias = [
             href={item.href}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={item.href}
           >
             <item.icon />
           </a>
