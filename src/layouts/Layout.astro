@@ -8,6 +8,8 @@ export interface Props {
 }
 
 const { title } = Astro.props
+const d = new Date()
+const timestamp = d.toISOString().slice(0,10)
 ---
 
 <!doctype html>
@@ -16,8 +18,10 @@ const { title } = Astro.props
     <meta charset="UTF-8" />
     <meta
       name="description"
-      content="Just a noob web engineer who like coding and owning home server. Coding is art!"
+      content="A noob software engineer who like coding and owning home server. Coding is art!"
     />
+    <meta itemprop="datePublished" content={timestamp}>
+    <meta itemprop="dateModified" content={timestamp}>
     <meta
       name="viewport"
       content="width=device-width"
