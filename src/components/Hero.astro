@@ -56,23 +56,30 @@ const socialMedias = [
     </p>
 
     <div
-      class="flex h-24 items-center
-        justify-center gap-4 rounded-3xl bg-gray-200
-        p-8"
+      class="flex h-24 flex-col items-center
+        justify-center gap-1 rounded-3xl bg-gray-200
+        p-4"
     >
-      {
-        socialMedias.map((item) => (
-          <a
-            class="h-12 w-12 fill-gray-800 hover:fill-gray-400 "
-            href={item.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={item.href}
-          >
-            <item.icon />
-          </a>
-        ))
-      }
+      <a
+        class="font-qsan text-sm text-black"
+      >
+        Let's talk! ping me</a
+      >
+      <div class="flex gap-4">
+        {
+          socialMedias.map((item) => (
+            <a
+              class="h-12 w-12 fill-gray-800 hover:fill-gray-400 "
+              href={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={item.href}
+            >
+              <item.icon />
+            </a>
+          ))
+        }
+      </div>
     </div>
     <!-- <button
       class="rounded-full bg-white p-2 text-black"
