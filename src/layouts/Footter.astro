@@ -1,6 +1,5 @@
 ---
-import Link from "src/components/Link.astro";
-
+import Link from "src/components/Link.astro"
 ---
 
 <footer>
@@ -15,23 +14,53 @@ import Link from "src/components/Link.astro";
     <div
       class="flex gap-4 p-2 text-center"
     >
-      <p class="text-md font-qsan"
-        >This website is to studing and
-        play with
+      <p class="text-md font-qsan">
+        Made with
         <Link
           class="text-md font-qsan underline"
           href="https://astro.build/"
-          newtab>Astro.js</Link>
-         (on top of <Link
+          newtab
+        >
+          {"Astro.js"}
+        </Link> (on top of <Link
           class="text-md font-qsan underline"
           newtab
           href="https://svelte.dev/"
-          >Svelte.js</Link>, 
-          <Link
-            class="text-md font-qsan underline"
-            newtab
-            href="https://react.dev/"
-          >React.js</Link>), Tailwind, Vercel
+        >
+          {"Svelte.js"}
+        </Link>,
+        <Link
+          class="text-md font-qsan underline"
+          newtab
+          href="https://react.dev/"
+        >
+          {"React.js"}
+        </Link>), <Link
+          class="text-md font-qsan underline"
+          newtab
+          href="https://tailwindcss.com/"
+        >
+          {"Tailwind"}
+        </Link>, <Link
+          class="text-md font-qsan underline"
+          newtab
+          href="https://vercel.com/"
+        >
+          {"Vercel"}
+        </Link>, Integrated with <Link
+          class="text-md font-qsan underline"
+          newtab
+          href="https://posthog.com/"
+        >
+          {"Posthog"}
+        </Link> and
+        <Link
+          class="text-md font-qsan underline"
+          newtab
+          href="https://analytics.google.com/"
+        >
+          {"Google Analytics"}
+        </Link>
       </p>
     </div>
   </div>
