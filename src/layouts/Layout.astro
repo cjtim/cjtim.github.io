@@ -1,5 +1,6 @@
 ---
 import Navbar from "../components/Navbar/index.astro"
+import Footter from "./Footter.astro";
 import Analytics from "./_analytics.astro"
 
 export interface Props {
@@ -56,4 +57,5 @@ const { title } = Astro.props
     <!-- <Navbar /> -->
     <slot />
   </body>
+  <Footter />
 </html>

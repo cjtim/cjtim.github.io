@@ -1,0 +1,9 @@
+---
+const { newtab } = Astro.props
+---
+
+<a
+  {...Astro.props}
+  target={newtab ? "_blank" : ""}
+  ><slot /></a
+>
