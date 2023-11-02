@@ -3,23 +3,25 @@ import CircleSvg from "../svgs/CircleSvg.astro"
 const {
   heading,
   company,
+  companyLink,
   timeline,
   Description,
   line,
 } = Astro.props
 ---
 
-<div class="flex flex-wrap gap-4">
+<div class="flex flex-wrap gap-2">
   <div
-    class="flex basis-full flex-col md:basis-1/4"
+    class="flex basis-full flex-col xl:basis-1/4"
   >
     <a
       class="font-qsan text-xl font-bold"
       >{heading}</a
     >
     <a
-      class="font-qsan text-lg font-semibold"
-      >{company}</a
+      class="font-qsan text-lg font-semibold decoration-solid hover:underline"
+      href={companyLink}
+      target="_blank">{company}</a
     >
     <a class="font-qsan text-lg"
       >{timeline}</a
@@ -27,12 +29,12 @@ const {
   </div>
 
   <div
-    class="-mb-3.5 block h-full w-full overflow-visible border md:hidden"
+    class="-mb-3.5 block h-full w-full overflow-visible border xl:hidden"
   >
   </div>
 
   <div
-    class="hidden w-28 flex-col items-center md:flex"
+    class="hidden w-28 flex-col items-center xl:flex"
   >
     <div
       class="w-8 rounded-full fill-gray-300"
@@ -46,9 +48,7 @@ const {
     }
   </div>
 
-  <div class="md:basis-1/2 lg:basis-3/5">
-    <article class="prose">
-      <Description />
-    </article>
+  <div class="xl:basis-3/5">
+    <Description />
   </div>
 </div>

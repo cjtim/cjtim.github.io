@@ -2,18 +2,30 @@
 import Layout from "../layouts/Layout.astro"
 import Hero from "../components/Hero.astro"
 import Experience from "src/components/Experience/Experience.astro"
-import Showcases from "src/components/Showcases.svelte"
-import Counter from "src/components/counter.svelte"
-import Aboutme from "src/components/Aboutme.astro"
 ---
 
-<Layout title="Tim - Jinna Chodchoy">
+<Layout
+  title="Tim - Jinna Chodchoy"
+  description="A noob software engineer who like coding and owning home server. Coding is art!"
+  image="/assets/index/og-img.png"
+>
   <main
     class="w-full bg-gray-100 text-black"
   >
     <Hero />
     <!-- <Aboutme /> -->
+    <div class="h-8"></div>
     <Experience />
+    <div
+      class="flex justify-center pb-7 pt-7"
+    >
+      <a
+        href="/projects"
+        class="rounded-md bg-blue-100 px-5 py-3 text-sm text-blue-600 transition hover:scale-105 hover:bg-blue-100 dark:text-blue-500"
+      >
+        View all projects 👉
+      </a>
+    </div>
     <!-- <Showcases
       contents={[
         {
@@ -41,13 +53,3 @@ import Aboutme from "src/components/Aboutme.astro"
     /> -->
   </main>
 </Layout>
-
-<style is:global>
-  html {
-    scroll-behavior: smooth;
-  }
-  html,
-  body {
-    overflow-x: hidden;
-  }
-</style>

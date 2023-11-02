@@ -2,6 +2,7 @@ import {
   useEffect,
   useState,
 } from "react"
+import React from "react"
 import { isDark } from "@utils/theme"
 import { MdDarkMode } from "react-icons/md"
 

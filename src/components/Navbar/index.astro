@@ -1,108 +1,142 @@
 ---
-// import ThemeSelector from "./ThemeSelector"
+import GitHubSvg from "../svgs/GitHubSvg.astro"
+import LinkedIn from "../svgs/LinkedIn.astro"
+import GmailSvg from "../svgs/GmailSvg.astro"
+// import { ThemeSwitch } from "astro-color-scheme"
+const socialMedias = [
+  {
+    icon: GitHubSvg,
+    href: "https://github.com/cjtim",
+  },
+  {
+    icon: LinkedIn,
+    href: "https://www.linkedin.com/in/jinna-chodchoy/",
+  },
+  {
+    icon: GmailSvg,
+    href: "mailto:jinnatim@gmail.com",
+  },
+]
 const navbars = [
   {
     label: "Tim Jinna",
-    href: "/#",
+    href: "/",
   },
   {
-    label: "Exp",
-    href: "/#exp",
-  },
-  {
-    label: "Tech",
-    href: "/tech",
-  },
-  {
-    label: "Skills",
-    href: "#skills",
+    label: "Projects",
+    href: "/projects",
   },
 ]
+const colors = {
+  active: "text-black",
+  inActive: "text-gray-500",
+}
 ---
 
-<nav
-  class="flex w-full justify-center border-b-2 border-gray-100 bg-white"
->
-  <div
-    class="m-2 flex flex-wrap gap-2"
-    id="btnBar"
-  >
-    {
-      navbars.map((i, idx) => (
-        <a
-          href={i.href}
-          onclick={`highlightBtn(${idx})`}
-        >
-          <button
-            id={`navbar-${idx}`}
-            class={
-              "text-gray-300 hover:text-gray-800" +
-              " rounded-full p-4 text-sm font-medium"
-            }
+<nav class="container mx-auto">
+  <div class="flex gap-2" id="btnBar">
+    <div class="mr-auto">
+      {
+        navbars.map((i, idx) => (
+          <a
+            href={i.href}
+            onclick={`highlightBtn(${idx})`}
           >
-            {i.label}
-          </button>
-        </a>
-      ))
-    }
-    <script type="text/javascript">
-      function highlightBtn(index) {
-        const elements =
-          document.querySelectorAll(
-            "[id^=navbar]",
-          )
-        console.log(
-          index,
-          elements,
-          elements.length,
-        )
-        for (
-          let i = 0;
-          i < elements.length;
-          i++
-        ) {
-          const e = document
-          if (i == index) {
-            console.log("add black", i)
-            elements[
-              i
-            ].classList.remove(
-              "text-gray-300",
-            )
-            elements[i].classList.add(
-              "text-black",
-            )
-          } else {
-            elements[i].classList.add(
-              "text-gray-300",
-            )
-            elements[
-              i
-            ].classList.remove(
-              "text-black",
-            )
-          }
-        }
-
-        console.log(
-          document.location.hash,
-        )
+            <button
+              id={`navbar-${idx}`}
+              class={
+                `${colors.inActive} hover:text-gray-800 dark:text-gray-300` +
+                ` m-4 ${
+                  idx === 0
+                    ? "text-2xl font-bold"
+                    : "text-md font-medium"
+                } ` +
+                ` bg-gradient-to-r 
+              from-purple-300 to-purple-200 
+              bg-[length:0px_10px] 
+              bg-left-bottom 
+              bg-no-repeat
+              transition-[background-size] 
+              duration-500 
+              hover:bg-[length:100%_3px] 
+              group-hover:bg-[length:100%_5px]`
+              }
+            >
+              {i.label}
+            </button>
+          </a>
+        ))
       }
-      const curretBtn =
-        document.querySelectorAll(
-          `a[href='/#${document.location.hash}']`,
-        )
-      console.log(curretBtn)
-      if (curretBtn[0]) {
-        console.log(curretBtn[0])
-        curretBtn[0].classList.add(
-          "text-black",
-        )
-        curretBtn[0].classList.remove(
-          "text-gray-300",
-        )
+    </div>
+    <div
+      class="flex flex-wrap items-center gap-4"
+    >
+      {
+        socialMedias.map((item) => (
+          <a
+            class={`h-8 w-8 fill-gray-800 hover:fill-gray-500 dark:fill-white`}
+            href={item.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={item.href}
+          >
+            <item.icon />
+          </a>
+        ))
       }
-    </script>
-    <!-- <ThemeSelector client:load /> -->
+    </div>
   </div>
 </nav>
+
+<script
+  type="text/javascript"
+  define:vars={{ colors }}
+>
+  function highlightBtn(index) {
+    const elements =
+      document.querySelectorAll(
+        "[id^=navbar]",
+      )
+    for (
+      let i = 0;
+      i < elements.length;
+      i++
+    ) {
+      if (i == index) {
+        elements[i].classList.remove(
+          colors.inActive,
+        )
+        elements[i].classList.add(
+          "text-black",
+        )
+      } else {
+        elements[i].classList.add(
+          colors.inActive,
+        )
+        elements[i].classList.remove(
+          "text-black",
+        )
+      }
+    }
+
+    console.log(
+      document.location.pathname,
+    )
+  }
+
+  const curretBtn =
+    document.querySelector(
+      `a[href="${document.location.pathname
+        .split("/")
+        .slice(0, 2)
+        .join("/")}"] > button`,
+    )
+  if (curretBtn) {
+    curretBtn.classList.add(
+      colors.active,
+    )
+    curretBtn.classList.remove(
+      colors.inActive,
+    )
+  }
+</script>

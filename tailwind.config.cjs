@@ -6,30 +6,26 @@ module.exports = {
       qsan: ['Quicksand', 'sans-serif']
     },
     extend: {
+      colors: {},
       keyframes: {
-        typing: {
-          "0%": {
-            width: "0%",
-            visibility: "hidden"
-          },
-          "100%": {
-            width: "100%"
-          }
-        },
-        blink: {
-          "50%": {
-            borderColor: "transparent"
-          },
-          "100%": {
-            borderColor: "white"
-          }
+        // slide: {
+        //   '0%': { transform: 'translateX(50vw)' },
+        //   '100%': { transform: 'translateX(0)' },
+        // },
+        fadeFromLeft: {
+          '0%': { width: "0", opacity: 0 },
+          '100%': { width: "100%", opacity: 100 }
         }
       },
       animation: {
-        typing: "typing 2s steps(20) 1 alternate, blink .7s infinite"
+        bounce2: "bounce 2s infinite",
+        // slide: 'slide 2s ease-in-out forwards',
+        appearSlide: '2s fadeFromLeft 1s 1 forwards'
       }
     },
   },
   darkMode: "class",
-    plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 }

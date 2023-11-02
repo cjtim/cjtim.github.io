@@ -9,7 +9,7 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://www.cjtim.com',
   integrations: [tailwind(), react(), svelte(), sitemap()],
-  output: "server",
+  output: "hybrid",
   adapter: vercel(),
   vite: {
     ssr: {
@@ -23,5 +23,8 @@ export default defineConfig({
     options: {
       parser: 'astro'
     }
-  }]
+  }],
+  experimental: {
+    devOverlay: true
+  }
 });

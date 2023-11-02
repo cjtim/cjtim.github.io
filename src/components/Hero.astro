@@ -1,85 +1,41 @@
----
-import GitHubSvg from "./svgs/GitHubSvg.astro"
-import LinkedIn from "./svgs/LinkedIn.astro"
-import GmailSvg from "./svgs/GmailSvg.astro"
-// import Modal from "./Modal/index.svelte"
-const socialMedias = [
-  {
-    icon: GitHubSvg,
-    href: "https://github.com/cjtim",
-  },
-  {
-    icon: LinkedIn,
-    href: "https://www.linkedin.com/in/jinna-chodchoy/",
-  },
-  {
-    icon: GmailSvg,
-    href: "mailto:jinnatim@gmail.com",
-  },
-]
----
-
 <div
-  class="flex w-full flex-wrap items-center justify-around gap-8 bg-gradient-to-tr from-green-500 to-blue-400 p-8 text-white"
+  class="flex flex-wrap justify-around
+   bg-gradient-to-tr from-green-500 to-blue-400
+   p-16 text-white"
 >
-  <div
+  <!-- <div
     class="flex w-5/6 flex-col items-center text-center sm:w-2/5"
   >
-    <img
-      src="./profile-ai.png"
-      class="rounded-full shadow-xl"
-      alt={`"A Software Engineer enjoying
-      write a code his laptop in cute
-      cartoon style" - AI Generated`}
-    />
+    <ProfileImg />
+    
     <a class="p-2 font-qsan italic">
       "A Software Engineer enjoying
       write a code his laptop in cute
       cartoon style" - AI Generated
     </a>
-  </div>
+  </div> -->
   <div
-    class="flex flex-col gap-8 md:items-end"
+    class="flex items-center gap-8 text-left"
   >
-    <h1
-      class="font-qsan text-5xl font-bold"
-    >
-      Tim Jinna
-    </h1>
-    <h2 class="font-qsan text-3xl">
-      A Software Engineer
-    </h2>
-
-    <div
-      class="flex h-24 flex-col items-center
-        justify-center gap-2 rounded-3xl bg-gray-200
-        px-4"
-    >
-      <a
-        class="font-qsan text-sm text-black"
+    <img
+      src="/profile.jpeg"
+      class="h-32 w-32 rounded-full shadow-2xl"
+      alt={`"A Software Engineer enjoying
+      write a code his laptop in cute
+      cartoon style" - AI Generated`}
+    />
+    <div class="flex flex-col gap-4">
+      <h1
+        class="font-qsan text-5xl font-semibold"
       >
-        Let's talk! ping me</a
+        I'm Tim
+      </h1>
+      <h2
+        class="animate-appearSlide overflow-hidden whitespace-nowrap font-qsan text-3xl opacity-0"
       >
-      <div class="flex gap-4">
-        {
-          socialMedias.map((item) => (
-            <a
-              class="h-12 w-12 fill-gray-800 hover:fill-gray-400 "
-              href={item.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={item.href}
-            >
-              <item.icon />
-            </a>
-          ))
-        }
-      </div>
+        A Software Engineer, Tech Nerd
+        👨🏼‍🔬
+      </h2>
     </div>
-    <!-- <button
-      class="rounded-full bg-white p-2 text-black"
-      >Resumé</button
-    > -->
-    <!-- <Modal id="gmail" client:only/> -->
   </div>
 </div>
