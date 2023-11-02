@@ -24,6 +24,20 @@ const { Content } = await entry.render()
     class="w-full bg-gray-100 text-black"
   >
     <div class="h-4"></div>
+    <div
+      class="relative z-0 mx-auto aspect-video max-w-screen-md overflow-hidden lg:rounded-lg"
+    >
+      {
+        entry.data.image?.url && (
+          <img
+            src={entry.data.image?.url}
+            alt="Thumbnail"
+            loading={"lazy"}
+            class="h-full w-full rounded-2xl object-cover"
+          />
+        )
+      }
+    </div>
     <article
       class="mx-auto max-w-screen-md"
     >
