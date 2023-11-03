@@ -20,7 +20,7 @@ module.exports = {
       animation: {
         bounce2: "bounce 2s infinite",
         // slide: 'slide 2s ease-in-out forwards',
-        appearSlide: '2s fadeFromLeft 1s 1 forwards'
+        appearSlide: '2s fadeFromLeft .5s 1 forwards'
       }
     },
   },
