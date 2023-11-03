@@ -1,6 +1,6 @@
 ---
 title: 'File Hosting and URL Shortener via LINE Chatbot'
-pubDate: 2022-07-01
+pubDate: 2023-11-03
 description: 'Upload a file to chatbot -> Got yourself a shorten URL!!'
 author: 'Astro Learner'
 image:
@@ -11,7 +11,9 @@ tags: ["urlshorten", "s3", "learning in public"]
 
 # File Hosting and URL Shortener via LINE Chatbot
 
-Published on: 2023-11-03
+**Published on**: 2023-11-03
+
+**Author**: Tim Jinna
 
 ## TL;DR 
 Picture this: You're in a university classroom, preparing for a presentation, and you need to access a PowerPoint file. The traditional process involves logging into Google Drive (entering your email, password, and 2FA), downloading the file, and finally opening it. What if I told you there's a simpler way? 

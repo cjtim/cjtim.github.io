@@ -1,10 +1,10 @@
 ---
 title: "Crypto Portfolio Tracking and Notification"
 pubDate: 2023-11-03
-description: "Welcome to the first post on my new Astro blog!"
-author: "Astro Learner"
+description: "Effortlessly track your Crypto portfolio"
+author: "Tim Jinna"
 image:
-  url: "/assets/projects/4/cover.png"
+  url: "/assets/projects/4/architecture.png"
   alt: "The full Astro logo."
 tags:
   [
@@ -17,17 +17,13 @@ tags:
 
 # Crypto Portfolio Tracking and Notification
 
-Published on: 2023-11-03
+**Published on**: 2023-11-03
+
+**Author**: Tim Jinna
 
 ## Introduction
 
 In 2021, I ventured into the world of cryptocurrency. With the volatile nature of crypto prices, I wanted a reliable way to track my portfolio and summarize my assets. To address this, I developed a bot to notify me through Excel picture files. This solution combines Golang, Python, the Pandas library, and the Binance API.
-
-## Architecture
-
-<div class="flex justify-center">
-    <img src="/assets/projects/4/architecture.png"/>
-</div>
 
 |                Customization                |        Notification Message         |
 | :-----------------------------------------: | :---------------------------------: |
