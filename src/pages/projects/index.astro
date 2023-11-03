@@ -12,21 +12,27 @@ const allPosts =
 
 <Layout
   title={pageTitle}
-  description="My Projects"
+  description="Tim's achivements and projects!"
+  image="/assets/projects/og-img.png"
 >
   <main
     class="w-full bg-gray-100 text-black"
   >
     <div
-      class="flex justify-center
+      class="flex flex-col items-center
    bg-gradient-to-tr from-blue-500 to-red-400
-   p-8 text-white"
+   p-8 gap-4 text-white"
     >
       <h1
         class="font-qsan text-5xl font-semibold"
       >
         My Projects
       </h1>
+      <h2
+        class="font-qsan text-xl font-normal"
+      >
+        New projects are coming. Stay tune!
+      </h2>
     </div>
 
     <div class="h-8"></div>
@@ -75,7 +81,7 @@ const allPosts =
               >
                 {post.data.title}
               </h3>
-              <a class="font-qsan text-md text-gray-600">
+              <a class="text-md font-qsan text-gray-600">
                 {post.data.description}
               </a>
             </a>
