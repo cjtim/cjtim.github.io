@@ -1,6 +1,8 @@
 ---
 import Layout from "@layouts/Layout.astro"
 import { getCollection } from "astro:content"
+import ButtonCenter from "src/components/ButtonCenter.astro"
+import HighlightText from "src/components/HighlightText.astro"
 // import { Icon } from "astro-icon"
 
 const aspect = "landscape",
@@ -20,8 +22,8 @@ const allPosts =
   >
     <div
       class="flex flex-col items-center
-   bg-gradient-to-tr from-blue-500 to-red-400
-   p-8 gap-4 text-white"
+   gap-4 bg-gradient-to-tr from-blue-500
+   to-red-400 p-8 text-white"
     >
       <h1
         class="font-qsan text-5xl font-semibold"
@@ -31,13 +33,14 @@ const allPosts =
       <h2
         class="font-qsan text-xl font-normal"
       >
-        New projects are coming. Stay tune!
+        New projects are coming. Stay
+        tune!
       </h2>
     </div>
 
     <div class="h-8"></div>
     <div
-      class="container mx-auto grid max-w-screen-lg grid-cols-1 md:grid-cols-2 place-content-center gap-8 rounded-3xl p-8"
+      class="container mx-auto grid max-w-screen-lg grid-cols-1 place-content-center gap-8 rounded-3xl p-8 md:grid-cols-2"
     >
       {
         allPosts.map((post) => (
@@ -65,22 +68,15 @@ const allPosts =
             <a
               href={`/projects/${post.slug}`}
             >
-              <h3
-                class="w-fit 
-                bg-gradient-to-r 
-              from-purple-300 to-purple-200 
-              bg-[length:0px_10px] 
-              bg-left-bottom 
-              bg-no-repeat 
-              font-qsan text-xl 
-              font-semibold 
-              transition-[background-size] 
-              duration-500 
-              hover:bg-[length:100%_3px] 
-              group-hover:bg-[length:100%_5px] "
-              >
-                {post.data.title}
-              </h3>
+              <HighlightText>
+                <h3
+                  class:list={[
+                    "font-qsan text-xl font-semibold ",
+                  ]}
+                >
+                  {post.data.title}
+                </h3>
+              </HighlightText>
               <a class="text-md font-qsan text-gray-600">
                 {post.data.description}
               </a>
@@ -90,14 +86,12 @@ const allPosts =
       }
     </div>
     <div
-      class="flex justify-center pb-7 pt-7"
+      class="flex justify-center py-7"
     >
-      <a
+      <ButtonCenter
+        text="← Back to Home"
         href="/"
-        class="rounded-md bg-blue-100 px-5 py-3 text-sm text-blue-600 transition hover:scale-105 hover:bg-blue-100 dark:text-blue-500"
-      >
-        ← Back to Home
-      </a>
+      />
     </div>
   </main>
 </Layout>

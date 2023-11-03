@@ -1,0 +1,26 @@
+---
+export interface Props {
+  class?: string
+  center?: boolean
+  col?: boolean
+}
+const {
+  class: className,
+  center = false,
+  col = false,
+} = Astro.props
+---
+
+<div
+  class:list={[
+    "flex",
+    center &&
+      (col
+        ? "items-center"
+        : "justify-center"),
+    col && "flex-col",
+    className?.trim(),
+  ]}
+>
+  <slot />
+</div>

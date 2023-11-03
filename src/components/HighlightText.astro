@@ -1,0 +1,23 @@
+---
+export interface Props {
+  class?: string
+}
+const { class: className } = Astro.props
+---
+
+<div
+  class:list={[
+    `w-fit bg-gradient-to-r
+    from-purple-300 to-purple-200
+    bg-[length:0px_10px]
+    bg-left-bottom
+    bg-no-repeat
+    transition-[background-size]
+    duration-500
+    hover:bg-[length:100%_3px]
+    group-hover:bg-[length:100%_5px]`,
+    className,
+  ]}
+>
+  <slot />
+</div>

@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content"
 import Layout from "@layouts/Layout.astro"
+import ButtonCenter from "src/components/ButtonCenter.astro"
 
 export async function getStaticPaths() {
   const blogEntries =
@@ -66,12 +67,10 @@ const { Content } = await entry.render()
       <div
         class="flex justify-center pb-7 pt-7"
       >
-        <a
+        <ButtonCenter
+          text="← View all projects"
           href="/projects"
-          class="rounded-md bg-blue-50 px-5 py-3 text-sm text-blue-600 transition hover:scale-105 hover:bg-blue-100 dark:text-blue-500"
-        >
-          ← View all projects
-        </a>
+        />
       </div>
     </article>
   </main>

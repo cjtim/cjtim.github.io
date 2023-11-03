@@ -2,6 +2,7 @@
 import GitHubSvg from "../svgs/GitHubSvg.astro"
 import LinkedIn from "../svgs/LinkedIn.astro"
 import GmailSvg from "../svgs/GmailSvg.astro"
+import HighlightText from "../HighlightText.astro"
 // import { ThemeSwitch } from "astro-color-scheme"
 const socialMedias = [
   {
@@ -44,25 +45,22 @@ const colors = {
           >
             <button
               id={`navbar-${idx}`}
-              class={
-                `${colors.inActive} hover:text-gray-800 dark:text-gray-300` +
-                ` m-4 ${
+              class:list={[
+                `${colors.inActive}`,
+                `hover:text-gray-800`,
+                `dark:text-gray-300`,
+                `m-4`,
+              ]}
+            >
+              <HighlightText
+                class={
                   idx === 0
                     ? "text-2xl font-bold"
                     : "text-md font-medium"
-                } ` +
-                ` bg-gradient-to-r 
-              from-purple-300 to-purple-200 
-              bg-[length:0px_10px] 
-              bg-left-bottom 
-              bg-no-repeat
-              transition-[background-size] 
-              duration-500 
-              hover:bg-[length:100%_3px] 
-              group-hover:bg-[length:100%_5px]`
-              }
-            >
-              {i.label}
+                }
+              >
+                {i.label}
+              </HighlightText>
             </button>
           </a>
         ))
