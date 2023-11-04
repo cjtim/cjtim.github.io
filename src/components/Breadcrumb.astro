@@ -1,0 +1,37 @@
+---
+export interface Props {
+  items: {
+    title: string
+    href: string
+  }[]
+}
+const {
+  items = [
+    { title: "Home", href: "/" },
+  ],
+} = Astro.props
+---
+
+<div class="flex gap-2">
+  {
+    items.map((i, idx) => {
+      const notLast =
+        idx !== items.length - 1
+      const ret = [
+        <a
+          href={i.href}
+          class={
+            `hover:underline ` +
+            (notLast
+              ? "text-gray-500"
+              : "text-black")
+          }
+        >
+          {i.title}
+        </a>,
+      ]
+      if (notLast) ret.push("/")
+      return ret
+    })
+  }
+</div>

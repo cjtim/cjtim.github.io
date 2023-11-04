@@ -1,6 +1,7 @@
 ---
 import Layout from "@layouts/Layout.astro"
 import { getCollection } from "astro:content"
+import Breadcrumb from "src/components/Breadcrumb.astro"
 import ButtonCenter from "src/components/ButtonCenter.astro"
 import HighlightText from "src/components/HighlightText.astro"
 // import { Icon } from "astro-icon"
@@ -21,9 +22,9 @@ const allPosts =
     class="w-full bg-gray-100 text-black"
   >
     <div
-      class="flex flex-col items-center 
+      class="flex flex-col items-center
    gap-4 bg-gradient-to-tr from-blue-500
-   to-red-400 p-8 text-white text-center"
+   to-red-400 p-8 text-center text-white"
     >
       <h1
         class="font-qsan text-5xl font-semibold"
@@ -38,13 +39,28 @@ const allPosts =
       </h2>
     </div>
 
-    <div class="h-8"></div>
     <div
-      class="container mx-auto grid max-w-screen-lg grid-cols-1 place-content-center gap-8 rounded-3xl p-8 md:grid-cols-2"
+      class="container mx-auto px-8 pt-4 max-w-screen-lg"
+    >
+      <Breadcrumb
+        items={[
+          {
+            title: "Home",
+            href: "/",
+          },
+          {
+            title: "Projects",
+            href: "/projects",
+          },
+        ]}
+      />
+    </div>
+    <div
+      class="container mx-auto grid max-w-screen-lg grid-cols-1 place-content-center gap-8 rounded-3xl px-8 py-4 md:grid-cols-2"
     >
       {
         allPosts.map((post) => (
-          <div class="group flex cursor-pointer flex-col p-4">
+          <div class="group flex cursor-pointer flex-col">
             <a
               href={
                 "/projects/" + post.slug
@@ -65,22 +81,27 @@ const allPosts =
                 />
               </div>
             </a>
-            <a
-              href={`/projects/${post.slug}`}
-            >
-              <HighlightText>
-                <h3
-                  class:list={[
-                    "font-qsan text-xl font-semibold ",
-                  ]}
+            <h2>
+              <a
+                href={
+                  "/project/" +
+                  post.slug
+                }
+              >
+                <span
+                  class="bg-gradient-to-r from-purple-300 to-purple-100 bg-[length:0px_10px] bg-left-bottom bg-no-repeat 
+                font-qsan text-xl font-semibold 
+                transition-[background-size] duration-500 
+                hover:bg-[length:100%_2px] group-hover:bg-[length:100%_5px] 
+               "
                 >
                   {post.data.title}
-                </h3>
-              </HighlightText>
-              <a class="text-md font-qsan text-gray-600">
-                {post.data.description}
+                </span>
               </a>
-            </a>
+            </h2>
+            <span class="text-md font-qsan text-gray-600">
+              {post.data.description}
+            </span>
           </div>
         ))
       }

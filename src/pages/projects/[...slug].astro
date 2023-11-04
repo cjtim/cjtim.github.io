@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content"
 import Layout from "@layouts/Layout.astro"
 import ButtonCenter from "src/components/ButtonCenter.astro"
+import Breadcrumb from "src/components/Breadcrumb.astro"
 
 export async function getStaticPaths() {
   const blogEntries =
@@ -24,10 +25,27 @@ const { Content } = await entry.render()
   <main
     class="w-full bg-gray-100 text-black"
   >
-    <div class="h-4"></div>
     <div
       class="relative z-0 mx-auto aspect-video max-w-screen-md overflow-hidden lg:rounded-lg"
     >
+      <div class="py-4">
+        <Breadcrumb
+          items={[
+            {
+              title: "Home",
+              href: "/",
+            },
+            {
+              title: "Projects",
+              href: "/projects",
+            },
+            {
+              title: entry.data.title,
+              href: `/projects/${entry.slug}`,
+            },
+          ]}
+        />
+      </div>
       {
         entry.data.image?.url && (
           <img
