@@ -2,7 +2,6 @@
 title: 'File Hosting and URL Shortener via LINE Chatbot'
 pubDate: 2023-11-03
 description: 'Upload a file to chatbot -> Got yourself a shorten URL!!'
-author: 'Astro Learner'
 image:
     url: '/assets/projects/5/cover.PNG'
     alt: 'A picture of file sent to chatbot'
@@ -13,6 +12,17 @@ tags: ["urlshorten", "s3", "learning in public"]
 Picture this: You're in a university classroom, preparing for a presentation, and you need to access a PowerPoint file. The traditional process involves logging into Google Drive (entering your email, password, and 2FA), downloading the file, and finally opening it. What if I told you there's a simpler way? 
 
 **I've created a URL shortener that allows you to upload a file to a chatbot, and voila, you get a shortened URL.**
+
+## How does it work?
+1. Add friend with LINE chatbot
+2. Send file into chat
+3. LINE webhook trigger Golang backend API endpoint
+4. Backend receieved webhook
+    * Download file into variable `[]bytes`
+    * Upload to S3, Generate URL with unique access token `https://firebasestorage.googleapis.com/v0/b/....jpeg?alt=media&token=9999999a-aaaa-aaaa-aaaa-9999999a`
+    * Generate shorten URL
+    * Store shortenURL, filename under sender `userId`
+    * Send message back to sender using reply token
 
 1.Send a file or picture |  2.Upload via UI
 :-------------------------:|:-------------------------:

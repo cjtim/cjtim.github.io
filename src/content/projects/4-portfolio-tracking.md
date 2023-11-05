@@ -2,7 +2,6 @@
 title: "Crypto Portfolio Tracking and Notification"
 pubDate: 2023-11-03
 description: "Effortlessly track your Crypto portfolio"
-author: "Tim Jinna"
 image:
   url: "/assets/projects/4/architecture.png"
   alt: "The full Astro logo."

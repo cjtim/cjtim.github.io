@@ -2,7 +2,6 @@
 title: "Renovate Bot: Open-source Contributions"
 pubDate: 2022-11-01
 description: "My story of making a contribution to Renovatebot"
-author: "Tim Jinna"
 image:
   url: "/assets/projects/2/image.jpg"
   alt: "Renovatebot logo"
