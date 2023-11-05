@@ -3,19 +3,17 @@ import Layout from "@layouts/Layout.astro"
 import { getCollection } from "astro:content"
 import Breadcrumb from "src/components/Breadcrumb.astro"
 import ButtonCenter from "src/components/ButtonCenter.astro"
-import HighlightText from "src/components/HighlightText.astro"
-// import { Icon } from "astro-icon"
 
-const aspect = "landscape",
-  preloadImage = false
-const pageTitle = "My Projects"
+const preloadImage = false
+const pageTitle =
+  "Tim Jinna - My Projects"
 const allPosts =
   await getCollection("projects")
 ---
 
 <Layout
   title={pageTitle}
-  description="Tim's achivements and projects!"
+  description="Tim's software engineer journey, achievements, and projects. Check it out!"
   image="/assets/projects/og-img.png"
 >
   <main
@@ -40,7 +38,7 @@ const allPosts =
     </div>
 
     <div
-      class="container mx-auto px-8 pt-4 max-w-screen-lg"
+      class="container mx-auto max-w-screen-lg px-8 pt-4"
     >
       <Breadcrumb
         items={[
