@@ -3,6 +3,8 @@ import { getCollection } from "astro:content"
 import Layout from "@layouts/Layout.astro"
 import ButtonCenter from "src/components/ButtonCenter.astro"
 import Breadcrumb from "src/components/Breadcrumb.astro"
+import { getFormattedDate } from "@utils/date"
+import Author from "src/components/Author.astro"
 
 export async function getStaticPaths() {
   const blogEntries =
@@ -26,7 +28,7 @@ const { Content } = await entry.render()
     class="w-full bg-gray-100 text-black"
   >
     <div
-      class="relative z-0 mx-auto aspect-video max-w-screen-md overflow-hidden lg:rounded-lg"
+      class="container mx-auto flex max-w-screen-md flex-col overflow-hidden"
     >
       <div class="py-4">
         <Breadcrumb
@@ -46,20 +48,48 @@ const { Content } = await entry.render()
           ]}
         />
       </div>
-      {
-        entry.data.image?.url && (
-          <img
-            src={entry.data.image?.url}
-            alt="Thumbnail"
-            loading={"lazy"}
-            class="h-full w-full rounded-2xl object-cover"
-          />
-        )
-      }
+      <div
+        class="flex h-full w-full justify-center"
+      >
+        <img
+          src={entry.data.image?.url}
+          alt="Thumbnail"
+          loading="lazy"
+          class="h-full max-w-screen-md rounded-3xl object-cover"
+        />
+      </div>
     </div>
+
     <article
       class="mx-auto max-w-screen-md"
     >
+      <div
+        class="flex w-full flex-col gap-1 py-2 md:w-auto"
+      >
+        <h1 class="text-3xl font-bold">
+          {entry.data.title}
+        </h1>
+        <h2
+          class="text-lg font-medium text-gray-500"
+        >
+          {entry.data.description}
+        </h2>
+        <Author />
+
+        <a
+          >Published on: {
+            getFormattedDate(
+              entry.data.pubDate,
+            )
+          }
+        </a>
+      </div>
+
+      <div
+        class="h-px w-full overflow-visible rounded-full border border-gray-300"
+      >
+      </div>
+
       <div
         class="prose prose-base mx-auto my-3
         max-w-screen-md dark:prose-invert prose-a:text-blue-600"

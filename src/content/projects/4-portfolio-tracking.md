@@ -15,11 +15,6 @@ tags:
   ]
 ---
 
-# Crypto Portfolio Tracking and Notification
-
-**Published on**: 2023-11-03
-
-**Author**: Tim Jinna
 
 ## Introduction
 
@@ -36,7 +31,7 @@ In 2021, I ventured into the world of cryptocurrency. With the volatile nature o
 3. **Binance API** - Used to fetch cryptocurrency prices.
 4. **Golang** - [GitHub Repository](https://github.com/cjtim/cjtim-backend-go)
 5. **MongoDB** - Utilized for mapping LINE user IDs and storing Binance API keys.
-6. **Python and Pandas** - Responsible for creating Excel pictures and streaming binary data to the LINE Notify API.
+6. **Python and Pandas** - Responsible for creating Excel pictures and streaming binary data to the LINE Notify API. https://github.com/cjtim/line-notify-binance-asset
 7. **LINE Notify** - The notification API.
 8. **Kubernetes** - The deployment platform.
 9. **GitLab CI** - Used for containerization, pushing to container registry, and deployment to Kubernetes.

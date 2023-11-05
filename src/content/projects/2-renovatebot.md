@@ -15,13 +15,6 @@ tags:
   ]
 ---
 
-# My Renovate Bot Open-source Contribution Adventure!
-
-<!-- ![Pic](https://docs.astro.build/assets/full-logo-light.png) -->
-
-**Published on**: 2023-11-01
-
-**Author**: Tim Jinna
 
 **All My Pull Request**: [Check it out here](https://github.com/renovatebot/renovate/pulls?q=is%3Apr+author%3Acjtim+)
 

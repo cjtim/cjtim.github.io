@@ -1,0 +1,28 @@
+---
+import { Image } from "astro:assets"
+
+const author = {
+  name: "Tim Jinna",
+  image: "/profile.jpeg",
+}
+---
+
+<div class="flex items-center gap-2">
+  {
+    author.image && (
+      <Image
+        src={author.image}
+        alt="Author Photo"
+        width={52}
+        height={52}
+        loading="eager"
+        class="rounded-full"
+      />
+    )
+  }
+  <p
+    class="text-lg font-medium text-gray-800 dark:text-gray-300"
+  >
+    {author.name}
+  </p>
+</div>
