@@ -14,6 +14,10 @@ tags:
   ]
 ---
 
+- [TL;DR](#tldr)
+- [The Story Unfolds](#the-story-unfolds)
+- [The Technical Side](#the-technical-side)
+- [My Contribution Highlights](#my-contribution-highlights)
 
 **All My Pull Request**: [Check it out here](https://github.com/renovatebot/renovate/pulls?q=is%3Apr+author%3Acjtim+)
 

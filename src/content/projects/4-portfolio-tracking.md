@@ -14,6 +14,9 @@ tags:
   ]
 ---
 
+- [Introduction](#introduction)
+- [Technologies Used in This Project](#technologies-used-in-this-project)
+- [How to Use It](#how-to-use-it)
 
 ## Introduction
 

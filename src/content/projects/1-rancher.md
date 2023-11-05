@@ -8,6 +8,10 @@ image:
 tags: ["rke", "kubernetes", "oracle cloud", "arm64"]
 ---
 
+- [Free Tier Packages](#free-tier-packages)
+- [My Setup](#my-setup)
+- [What I've accomplished](#what-ive-accomplished)
+
 I've always wanted to host my Kubernetes cluster in the cloud, but the cost has been a barrier for my home lab playground. Until I came across Oracle cloud always free Virtual machine!
 
 ## Free Tier Packages

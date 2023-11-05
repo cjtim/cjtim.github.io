@@ -8,6 +8,10 @@ image:
 tags: ["urlshorten", "s3", "learning in public"]
 ---
 
+- [TL;DR](#tldr)
+- [How does it work?](#how-does-it-work)
+- [Technologies Used in This Project](#technologies-used-in-this-project)
+
 ## TL;DR 
 Picture this: You're in a university classroom, preparing for a presentation, and you need to access a PowerPoint file. The traditional process involves logging into Google Drive (entering your email, password, and 2FA), downloading the file, and finally opening it. What if I told you there's a simpler way? 
 
