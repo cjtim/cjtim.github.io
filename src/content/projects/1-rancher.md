@@ -45,4 +45,14 @@ So, what do you get for free?
 3. **Automated SSL Renewal and DNS Registration**: As all wildcards of my domain (*.k8s.cjtim.com and *.cjtim.com) point to the Elastic Load Balancer, I've used cert-manager to handle wildcard certificates and automatic HTTPS securing of ingress under these domains.
 
 4. **Controlling Kubernetes Cluster without KUBECONFIG Token (Auth0)**: Utilizing Auth0 and [oidc-login](https://github.com/int128/kubelogin) enables users to access the cluster without needing to store service account tokens on their computers, enhancing Kubernetes cluster security.
-
+    ```yaml
+    # RKE configuration file
+    services:
+        kube-api:
+            extra_args:
+                oidc-issuer-url: https://xxxx.us.auth0.com/
+                oidc-client-id: xxxxxxxxxxxx
+                oidc-username-claim: email
+                oidc-groups-claim: k8s-roles
+                oidc-groups-prefix: "oidc:"
+    ```
