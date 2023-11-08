@@ -15,7 +15,7 @@ tags:
 ---
 
 - [TL;DR](#tldr)
-- [The Story Unfolds](#the-story-unfolds)
+- [The Story](#the-story)
 - [The Technical Side](#the-technical-side)
 - [My Contribution Highlights](#my-contribution-highlights)
 
@@ -25,11 +25,11 @@ tags:
 
 In a nutshell, I managed to enhance Renovatebot's syntax parser within the Scala and Kotlin modules.
 
-## The Story Unfolds
+## The Story
 
 It all started back in July 2022 when I first came across Renovatebot. The goal was to enhance the developer experience within our company. After diving into the documentation and conducting thorough tests, I stumbled upon an issue with parsing Scala repositories. Scala allows variable lookup from inside a package definition, which can be seen in an example from IntelliJ [here](https://github.com/JetBrains/intellij-scala/blob/76efc6cfa54909926542d0138492d52a22aa65e3/project/dependencies.scala#L4).
 
-I tried my hand at configuring it for a while using the [regex Manager](https://docs.renovatebot.com/modules/manager/regex/), but the results weren't as impressive as I'd hoped. So, I made a bold decision – to do something I had never done before: clone the repository and rewrite the parser manager. To be honest, the code was quite a challenge, and testing it required writing some additional scripts.
+I tried my hand at configuring it using the [regex Manager](https://docs.renovatebot.com/modules/manager/regex/), but the results weren't as impressive as I'd hoped. So, I made a bold decision – to do something I had never done before: clone the repository and rewrite the parser manager. To be honest, the code was quite a challenge, and testing it required writing some additional scripts.
 
 ## The Technical Side
 

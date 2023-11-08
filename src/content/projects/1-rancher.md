@@ -25,14 +25,16 @@ So, what do you get for free?
 
 ## My Setup
 1. 1x Elastic Load Balancer for incoming traffic and fault tolerance in case one of the nodes becomes unavailable.
-2. VM setup includes 1x 2-CPU ARM64 VM, 2x 1-CPU ARM64 VMs, and 2 partitions on each VM (Linux system and Ceph partition) formatted using a cloud-init script:
-    ```yaml
-    #cloud-config
-    bootcmd:
-    - [cloud-init-per, once, move-second-header, sgdisk, --move-second-header, /dev/sda]
-    - [cloud-init-per, once, create-ceph-part, parted, --script, /dev/sda, 'mkpart 2 25GB -1']
-    ```
-2. Kubernetes ecosystem
+2. VM setup includes **1x** 2-CPU ARM64 VM, **2x** 1-CPU ARM64 VMs, and 2 partitions on each VM (Linux system and Ceph partition) formatted using a cloud-init script:  
+    <details class="cursor-pointer">
+        <summary>Cloud-init</summary>
+        This script helps create second partition (/dev/sdb) 25GB size. If original block storage is 100GB (outcome 75GB and 25GB).
+        #cloud-config
+        bootcmd:
+        - [cloud-init-per, once, move-second-header, sgdisk, --move-second-header, /dev/sda]
+        - [cloud-init-per, once, create-ceph-part, parted, --script, /dev/sda, 'mkpart 2 25GB -1']
+    </details>
+2. RKE Kubernetes ecosystem
     * Cilium Ingress
     * Cert-manager
     * Rook Ceph for Persisten volumes
@@ -60,3 +62,9 @@ So, what do you get for free?
                 oidc-groups-claim: k8s-roles
                 oidc-groups-prefix: "oidc:"
     ```
+
+Creating and managing a Kubernetes cluster on Oracle Cloud's always-free Virtual Machine offering has been an exciting journey.
+
+One of the most interesting aspects of this project has been the implementation of Auth0 and `oidc-login` to control access to the Kubernetes cluster without the need to store service account tokens on users' computers. This approach has not only simplified access but also elevated the cluster's security.
+
+I hope you find the information shared in this post valuable for your own Kubernetes projects.
