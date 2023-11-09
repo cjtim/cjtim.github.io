@@ -1,8 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro"
 import Hero from "../components/Hero.astro"
-import Experience from "src/components/Experience/Experience.astro"
+// import Experience from "src/components/Experience/Experience.astro"
 import ButtonCenter from "src/components/ButtonCenter.astro"
+import TabExp from "src/components/TabExp/TabExp.astro";
 ---
 
 <Layout
@@ -14,8 +15,8 @@ import ButtonCenter from "src/components/ButtonCenter.astro"
     class="w-full bg-gray-100 text-black"
   >
     <Hero />
-    <!-- <Aboutme /> -->
-    <Experience />
+    <TabExp />
+    <!-- <Experience /> -->
     <div
       class="flex justify-center pb-8"
     >
@@ -24,30 +25,5 @@ import ButtonCenter from "src/components/ButtonCenter.astro"
         href="/projects"
       />
     </div>
-    <!-- <Showcases
-      contents={[
-        {
-          img: "https://images.unsplash.com/photo-1465572089651-8fde36c892dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2666&q=80",
-          title: "My first project",
-          description:
-            "This project i Test",
-        },
-        {
-          img: "https://images.unsplash.com/photo-1465572089651-8fde36c892dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2666&q=80",
-          title: "My first project",
-          description:
-            "This project i Test",
-        },
-        {
-          img: "https://images.unsplash.com/photo-1465572089651-8fde36c892dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2666&q=80",
-        },
-        {
-          img: "https://images.unsplash.com/photo-1465572089651-8fde36c892dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2666&q=80",
-        },
-        {
-          img: "https://images.unsplash.com/photo-1465572089651-8fde36c892dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2666&q=80",
-        },
-      ]}
-    /> -->
   </main>
 </Layout>
