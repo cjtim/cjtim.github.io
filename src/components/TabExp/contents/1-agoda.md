@@ -10,7 +10,7 @@ position: Software Engineer
 * Utilized and contributed to the open-source project [Renovatebot](/projects/2-renovatebot). Substantially reduced developers' workload in library version upgrades by seamlessly **integrating the Pull Request bot across 5000+ repositories**.
 
 **DevOps team:**
-* **Deploy and ensure healthness of services** such as GitLab, GitLab CI Runners, Harbor, Jira, Confluence, Artifactory.
+* **Deploy and ensure uptime of the services** such as GitLab, GitLab CI Runners, Harbor, Jira, Confluence, Artifactory.
 * **Setup monitoring and observability** on Kubernetes clusters and Virtual machines.
 * **Initiated, Architect, and Led the project of moving 700+ GitLab CI Runner** from OpenStack to Kubernetes. Resolved infrastructure issues, reduced provision time by 80%, introduced auto-scaling with KEDA, and published Medium blog https://medium.com/@agoda.eng/c05a59b60fb1
 * **Investigate and resolve infrastructure**, network, and security issues, implementing preventative measures, technical support, and **on-call rotation**.
