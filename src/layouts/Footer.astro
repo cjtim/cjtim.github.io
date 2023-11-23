@@ -1,3 +1,6 @@
+---
+import Link from "src/components/Link.astro"
+---
 
 <footer>
   <div
@@ -12,10 +15,14 @@
       class="flex gap-4 p-2 text-center"
     >
       <p class="text-md font-qsan">
-        Made with Astro.js (+ Svelte.js,
-        React.js), Tailwind, Vercel,
-        Integrated with Posthog and
-        Google Analytics
+        Made with Astro.js. want to see
+        source code? > <Link
+          href="https://github.com/cjtim/cjtim.github.io"
+          newtab
+          class="hover:underline"
+        >
+          GitHub
+        </Link>
       </p>
     </div>
   </div>
