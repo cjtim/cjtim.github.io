@@ -21,7 +21,7 @@ const {
         <a
           href={i.href}
           class={
-            `hover:underline ` +
+            `hover:underline dark:text-white ` +
             (notLast
               ? "text-gray-500"
               : "text-black")
@@ -30,7 +30,7 @@ const {
           {i.title}
         </a>,
       ]
-      if (notLast) ret.push("/")
+      if (notLast) ret.push(<a class="dark:text-white">/</a>)
       return ret
     })
   }

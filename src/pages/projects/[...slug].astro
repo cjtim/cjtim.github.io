@@ -24,11 +24,9 @@ const { Content } = await entry.render()
   description={entry.data.description}
   image={entry.data.image.url}
 >
-  <main
-    class="w-full bg-gray-100 text-black"
-  >
+  <main>
     <div
-      class="container mx-auto flex max-w-screen-md flex-col overflow-hidden"
+      class="container mx-2 md:mx-auto flex max-w-screen-md flex-col overflow-hidden"
     >
       <div class="py-4">
         <Breadcrumb
@@ -61,22 +59,22 @@ const { Content } = await entry.render()
     </div>
 
     <article
-      class="mx-auto max-w-screen-md"
+      class="mx-4 md:mx-auto max-w-screen-md"
     >
       <div
         class="flex w-full flex-col gap-1 py-2 md:w-auto"
       >
-        <h1 class="text-3xl font-bold">
+        <h1 class="text-3xl font-bold dark:text-white">
           {entry.data.title}
         </h1>
         <h2
-          class="text-lg font-medium text-gray-500"
+          class="text-lg font-medium text-gray-600 dark:text-white dark:opacity-70"
         >
           {entry.data.description}
         </h2>
         <Author />
 
-        <a
+        <a class="dark:text-white"
           >Published on: {
             getFormattedDate(
               entry.data.pubDate,
@@ -86,13 +84,13 @@ const { Content } = await entry.render()
       </div>
 
       <div
-        class="h-px w-full overflow-visible rounded-full border border-gray-300"
+        class="h-px w-full overflow-visible rounded-full border border-gray-300 dark:border-white"
       >
       </div>
 
       <div
-        class="prose prose-base mx-auto my-3
-        max-w-screen-md dark:prose-invert prose-a:text-blue-600"
+        class="prose prose-base mx-auto my-3 max-w-screen-md
+        dark:prose-invert prose-a:text-blue-600"
       >
         <Content />
 
@@ -103,7 +101,7 @@ const { Content } = await entry.render()
           {
             entry.data.tags.map(
               (tag) => (
-                <span class="text-sm text-gray-500">
+                <span class="text-sm text-gray-500 dark:text-white">
                   #{tag}
                 </span>
               ),

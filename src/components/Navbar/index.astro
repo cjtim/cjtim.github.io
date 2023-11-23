@@ -29,8 +29,8 @@ const navbars = [
   },
 ]
 const colors = {
-  active: "text-black",
-  inActive: "text-gray-500",
+  active: "text-white",
+  inActive: "text-gray-300",
 }
 ---
 
@@ -47,8 +47,7 @@ const colors = {
               id={`navbar-${idx}`}
               class:list={[
                 `${colors.inActive}`,
-                `hover:text-gray-800`,
-                `dark:text-gray-300`,
+                `hover:opacity-70`,
                 `m-4`,
               ]}
             >
@@ -67,12 +66,12 @@ const colors = {
       }
     </div>
     <div
-      class="flex flex-wrap items-center gap-4"
+      class="flex flex-wrap items-center gap-4 mx-4"
     >
       {
         socialMedias.map((item) => (
           <a
-            class={`h-8 w-8 fill-gray-800 hover:fill-gray-500 dark:fill-white`}
+            class={`h-8 w-8 fill-white hover:opacity-70`}
             href={item.href}
             target="_blank"
             rel="noopener noreferrer"
@@ -105,14 +104,14 @@ const colors = {
           colors.inActive,
         )
         elements[i].classList.add(
-          "text-black",
+          color.active,
         )
       } else {
         elements[i].classList.add(
           colors.inActive,
         )
         elements[i].classList.remove(
-          "text-black",
+          color.active,
         )
       }
     }
