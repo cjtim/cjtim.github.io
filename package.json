@@ -18,6 +18,8 @@
     "@astrojs/vercel": "^3.8.2",
     "astro": "^3.6.4",
     "astro-color-scheme": "^1.1.2",
+    "firebase": "^10.8.0",
+    "firebaseui": "^6.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.12.0",

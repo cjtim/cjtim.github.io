@@ -28,15 +28,97 @@ const timestamp = d
       content={timestamp}
     />
     <script>
-      localStorage.theme = 'dark'
-      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark')
+      localStorage.theme = "dark"
+      if (
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia(
+            "(prefers-color-scheme: dark)",
+          ).matches)
+      ) {
+        document.documentElement.classList.add(
+          "dark",
+        )
       } else {
-        document.documentElement.classList.remove('dark')
+        document.documentElement.classList.remove(
+          "dark",
+        )
       }
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "firebase/app"
+      import * as firebaseui from "firebaseui"
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey:
+          "AIzaSyAWMcF9l9GOGR4ab3FlEJMc-rTRhO_xoW0",
+        authDomain:
+          "cjtim-firebase.firebaseapp.com",
+        databaseURL:
+          "https://cjtim-firebase-default-rtdb.firebaseio.com",
+        projectId: "cjtim-firebase",
+        storageBucket:
+          "cjtim-firebase.appspot.com",
+        messagingSenderId:
+          "154802254464",
+        appId:
+          "1:154802254464:web:bb3d53f5af93ca4d886c65",
+      }
+
+      // Initialize Firebase
+      const app = initializeApp(
+        firebaseConfig,
+      )
+      import {
+        getAuth,
+        GoogleAuthProvider,
+      } from "firebase/auth"
+      // import * as firebase from "firebase"
+      var ui =
+        new firebaseui.auth.AuthUI(
+          getAuth(app),
+        )
+      ui.start(
+        "#firebase-login-widget",
+        {
+          signInOptions: [
+            {
+              provider:
+                GoogleAuthProvider.PROVIDER_ID,
+              clientId:
+                "154802254464-e7mdbc9vhakr2p553jeinoa3mdagtviv.apps.googleusercontent.com",
+            },
+          ],
+          credentialHelper:
+            firebaseui.auth
+              .CredentialHelper
+              .GOOGLE_YOLO,
+        },
+      )
+      // ui.disableAutoSignIn()
     </script>
   </head>
-  <body class="w-full dark:bg-gradient-to-tr from-slate-900 to-teal-950">
+  <body
+    class="w-full from-slate-900 to-teal-950 dark:bg-gradient-to-tr"
+  >
+    <div id="firebase-login-widget">
+      <div id="g_id_onload"
+      data-client_id="154802254464-e7mdbc9vhakr2p553jeinoa3mdagtviv.apps.googleusercontent.com"
+      data-context="signin"
+      data-ux_mode="popup"
+      data-login_uri="https://refactored-zebra-qp6vg6wwvr6h4xv5-4321.app.github.dev/login"
+      data-nonce=""
+      data-itp_support="true">
+ </div>
+ 
+ <div class="g_id_signin"
+      data-type="standard"
+      data-shape="rectangular"
+      data-theme="outline"
+      data-text="signin_with"
+      data-size="large"
+      data-logo_alignment="left">
+ </div>
+
     <Navbar />
     <slot />
     <!-- <Footer /> -->
