@@ -3,7 +3,8 @@ import GitHubSvg from "../svgs/GitHubSvg.astro"
 import LinkedIn from "../svgs/LinkedIn.astro"
 import GmailSvg from "../svgs/GmailSvg.astro"
 import HighlightText from "../HighlightText.astro"
-// import { ThemeSwitch } from "astro-color-scheme"
+import ThemeSelector from "./ThemeSelector.jsx"
+import MenuIcon from "../svgs/MenuIcon.astro";
 const socialMedias = [
   {
     icon: GitHubSvg,
@@ -35,13 +36,27 @@ const colors = {
 ---
 
 <nav class="container mx-auto">
-  <div class="flex gap-2" id="btnBar">
+  <!-- Hamburger Menu Button (Visible on small screens) -->
+  <div class="md:hidden flex justify-end p-4">
+    <button
+      id="hamburger-button"
+      aria-label="Open menu"
+      aria-controls="mobile-menu"
+      aria-expanded="false"
+      onclick="toggleMobileMenu()"
+    >
+      <MenuIcon />
+    </button>
+  </div>
+
+  <!-- Desktop Navbar (Visible on medium screens and up) -->
+  <div class="hidden md:flex gap-2" id="btnBar">
     <div class="mr-auto">
       {
         navbars.map((i, idx) => (
           <a
             href={i.href}
-            onclick={`highlightBtn(${idx})`}
+            onclick={`handleNavLinkClick(${idx})`}
           >
             <button
               id={`navbar-${idx}`}
@@ -65,13 +80,12 @@ const colors = {
         ))
       }
     </div>
-    <div
-      class="flex flex-wrap items-center gap-4 mx-4"
-    >
+    <div class="flex flex-wrap items-center gap-4 mx-4">
+      <ThemeSelector client:load />
       {
         socialMedias.map((item) => (
           <a
-            class={`h-8 w-8 fill-white hover:opacity-70`}
+            class="h-8 w-8 fill-white hover:opacity-70"
             href={item.href}
             target="_blank"
             rel="noopener noreferrer"
@@ -83,57 +97,119 @@ const colors = {
       }
     </div>
   </div>
+
+  <!-- Mobile Menu (Hidden by default, shown on small screens when toggled) -->
+  <div id="mobile-menu" class="hidden md:hidden p-4 space-y-4">
+    <!-- Navigation Links -->
+    {navbars.map((i, idx) => (
+      <a href={i.href} class="block text-center">
+        <button
+          class:list={[
+            `${colors.inActive} hover:opacity-70 w-full text-left p-2 rounded`,
+          ]}
+          onclick={`handleNavLinkClick(${idx}); toggleMobileMenu()`}
+        >
+          <HighlightText class={idx === 0 ? "text-xl font-bold" : "text-lg"}>
+            {i.label}
+          </HighlightText>
+        </button>
+      </a>
+    ))}
+    <!-- Theme Selector -->
+    <div class="flex justify-center">
+      <ThemeSelector client:load />
+    </div>
+    <!-- Social Media Icons -->
+    <div class="flex justify-center items-center gap-4 pt-4">
+      {socialMedias.map((item) => (
+        <a
+          class="h-8 w-8 fill-white hover:opacity-70"
+          href={item.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={item.href}
+        >
+          <item.icon />
+        </a>
+      ))}
+    </div>
+  </div>
 </nav>
 
+<script define:vars={{ colors, navbars }}>
+  // Helper function to update active states for all relevant links
+  function updateActiveLinks(activePath) {
+    // Select all navigation links (buttons within a tags)
+    const allNavLinks = document.querySelectorAll("#btnBar a > button, #mobile-menu a > button");
+
+    allNavLinks.forEach(button => {
+      const linkElement = button.closest('a'); // Get the parent <a> tag
+      if (linkElement) {
+        const linkPath = linkElement.getAttribute('href');
+        // Normalize paths to ensure consistent comparison (e.g. remove trailing slashes if any)
+        const normalizedLinkPath = linkPath === '/' ? '/' : linkPath.replace(/\/$/, "");
+        const normalizedActivePath = activePath === '/' ? '/' : activePath.replace(/\/$/, "");
+
+        if (normalizedLinkPath === normalizedActivePath) {
+          button.classList.add(colors.active);
+          button.classList.remove(colors.inActive);
+        } else {
+          button.classList.add(colors.inActive);
+          button.classList.remove(colors.active);
+        }
+      }
+    });
+  }
+
+  // Function called when a navigation link is clicked
+  function handleNavLinkClick(index) {
+    if (navbars && navbars[index]) {
+      const clickedPath = navbars[index].href;
+      updateActiveLinks(clickedPath);
+      // Astro's page transition will handle the navigation.
+      // If mobile menu is open and a link is clicked, it should close.
+      // The toggleMobileMenu() is already part of the onclick for mobile links.
+    }
+  }
+
+  // Set initial active button based on current path on page load
+  function setActiveButtonOnLoad() {
+    // Use current pathname directly. Normalize it for comparison.
+    const currentPath = document.location.pathname;
+    updateActiveLinks(currentPath);
+  }
+  
+  // Ensure DOM is loaded before trying to find elements
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", setActiveButtonOnLoad);
+  } else {
+    setActiveButtonOnLoad(); // Call directly if DOM is already loaded
+  }
+
+  // Hamburger menu toggle function (remains the same)
+  function toggleMobileMenu() {
+    const menu = document.getElementById("mobile-menu");
+    const button = document.getElementById("hamburger-button");
+    const isOpen = !menu.classList.contains("hidden");
+
+    menu.classList.toggle("hidden");
+    button.setAttribute("aria-expanded", isOpen ? "false" : "true");
+  }
+
+  // Make functions globally accessible for inline onclick attributes
+  window.toggleMobileMenu = toggleMobileMenu;
+  window.handleNavLinkClick = handleNavLinkClick; 
+  // `highlightBtn` is renamed to `handleNavLinkClick`
+  // `highlightBtn` in onclick attributes in HTML also needs to be changed to `handleNavLinkClick`
+</script>
 <script
   type="text/javascript"
-  define:vars={{ colors }}
+  define:vars={{ colors }} // This define:vars is now redundant if navbars isn't needed here.
 >
-  function highlightBtn(index) {
-    const elements =
-      document.querySelectorAll(
-        "[id^=navbar]",
-      )
-    for (
-      let i = 0;
-      i < elements.length;
-      i++
-    ) {
-      if (i == index) {
-        elements[i].classList.remove(
-          colors.inActive,
-        )
-        elements[i].classList.add(
-          color.active,
-        )
-      } else {
-        elements[i].classList.add(
-          colors.inActive,
-        )
-        elements[i].classList.remove(
-          color.active,
-        )
-      }
-    }
-
-    console.log(
-      document.location.pathname,
-    )
-  }
-
-  const curretBtn =
-    document.querySelector(
-      `a[href="${document.location.pathname
-        .split("/")
-        .slice(0, 2)
-        .join("/")}"] > button`,
-    )
-  if (curretBtn) {
-    curretBtn.classList.add(
-      colors.active,
-    )
-    curretBtn.classList.remove(
-      colors.inActive,
-    )
-  }
+// This script block seems to be a duplicate or remnant of the original script.
+// The logic for highlightBtn and setActiveButtonOnLoad has been integrated into the script block above.
+// I will remove this duplicate block.
+// This script block seems to be a duplicate or remnant of the original script.
+// The logic for highlightBtn and setActiveButtonOnLoad has been integrated into the script block above.
+// I will remove this duplicate block.
 </script>
