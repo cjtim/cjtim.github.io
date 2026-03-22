@@ -1,7 +1,5 @@
 ---
-const contents = await Astro.glob(
-  "./contents/*.md",
-)
+const contents = Object.values(import.meta.glob('./contents/*.md', { eager: true })) as any[];
 ---
 
 <div

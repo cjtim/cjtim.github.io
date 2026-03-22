@@ -1,0 +1,23 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* Set dark mode to use the class strategy */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-qsan: "Quicksand", sans-serif;
+  
+  --animate-bounce2: bounce 2s infinite;
+  --animate-appearSlide: fadeFromLeft 2s 0.5s 1 forwards;
+  
+  @keyframes fadeFromLeft {
+    0% {
+      width: 0;
+      opacity: 0;
+    }
+    100% {
+      width: 100%;
+      opacity: 1;
+    }
+  }
+}

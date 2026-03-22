@@ -1,6 +1,6 @@
 import type { APIContext } from "astro"
 
-export function get({
+export function GET({
   generator,
   site,
 }: APIContext) {

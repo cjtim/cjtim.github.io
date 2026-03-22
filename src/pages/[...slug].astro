@@ -1,0 +1,125 @@
+---
+import { getCollection, render } from "astro:content"
+import Layout from "@layouts/Layout.astro"
+import ButtonCenter from "src/components/ButtonCenter.astro"
+import Breadcrumb from "src/components/Breadcrumb.astro"
+import { getFormattedDate } from "@utils/date"
+import Author from "src/components/Author.astro"
+
+export async function getStaticPaths() {
+  const indexEntries =
+    await getCollection("index")
+  return indexEntries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }))
+}
+
+const { entry } = Astro.props
+const { Content } = await render(entry)
+---
+
+<Layout
+  title={entry.data.title}
+  description={entry.data.description}
+  image={entry.data.image?.url}
+>
+  <main>
+    <div
+      class="container mx-2 flex max-w-screen-md flex-col overflow-hidden md:mx-auto"
+    >
+      <div class="py-4">
+        <Breadcrumb
+          items={[
+            {
+              title: "Home",
+              href: "/",
+            },
+            {
+              title: "Projects",
+              href: "/projects",
+            },
+            {
+              title: entry.data.title,
+              href: `/projects/${entry.id}`,
+            },
+          ]}
+        />
+      </div>
+      <div
+        class="flex h-full w-full justify-center"
+      >
+        <img
+          src={entry.data.image?.url}
+          alt="Thumbnail"
+          loading="lazy"
+          class="h-full max-w-screen-md rounded-3xl object-cover"
+        />
+      </div>
+    </div>
+
+    <article
+      class="mx-4 max-w-screen-md md:mx-auto"
+    >
+      <div
+        class="flex w-full flex-col gap-1 py-2 md:w-auto"
+      >
+        <h1
+          class="text-3xl font-bold dark:text-white"
+        >
+          {entry.data.title}
+        </h1>
+        <h2
+          class="text-lg font-medium text-gray-600 dark:text-white dark:opacity-70"
+        >
+          {entry.data.description}
+        </h2>
+        <Author />
+
+        <a class="dark:text-white"
+          >Published on: {
+            getFormattedDate(
+              entry.data.pubDate,
+            )
+          }
+        </a>
+      </div>
+
+      <div
+        class="h-px w-full overflow-visible rounded-full border border-gray-300 dark:border-white"
+      >
+      </div>
+
+      <div
+        class="prose prose-base mx-auto my-3 max-w-screen-md
+        dark:prose-invert prose-a:text-blue-600"
+      >
+        <Content />
+
+        <!-- Tags -->
+        <div
+          class="flex w-full flex-wrap items-center gap-3 md:w-auto"
+        >
+          {
+            entry.data.tags?.map(
+              (tag) => (
+                <span class="text-sm text-gray-500 dark:text-white">
+                  #{tag}
+                </span>
+              ),
+            )
+          }
+        </div>
+      </div>
+
+      <div
+        class="flex justify-center pb-7 pt-7"
+      >
+        <ButtonCenter
+          text="← View all projects"
+          href="/projects"
+        />
+      </div>
+    </article>
+  </main>
+</Layout>
