@@ -3,7 +3,6 @@ import GitHubSvg from "../svgs/GitHubSvg.astro"
 import LinkedIn from "../svgs/LinkedIn.astro"
 import GmailSvg from "../svgs/GmailSvg.astro"
 import HighlightText from "../HighlightText.astro"
-// import { ThemeSwitch } from "astro-color-scheme"
 const socialMedias = [
   {
     icon: GitHubSvg,
@@ -104,14 +103,14 @@ const colors = {
           colors.inActive,
         )
         elements[i].classList.add(
-          color.active,
+          colors.active,
         )
       } else {
         elements[i].classList.add(
           colors.inActive,
         )
         elements[i].classList.remove(
-          color.active,
+          colors.active,
         )
       }
     }
