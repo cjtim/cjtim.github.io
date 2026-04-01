@@ -1,6 +1,7 @@
 ---
 import BaseHead from "src/components/BaseHead.astro"
 import Navbar from "../components/Navbar/index.astro"
+import AnimatedBackground from "../components/AnimatedBackground"
 import "../styles/global.css"
 
 export interface Props {
@@ -36,7 +37,8 @@ const timestamp = d
       }
     </script>
   </head>
-  <body class="w-full dark:bg-gradient-to-tr from-slate-900 to-teal-950">
+  <body class="w-full">
+    <AnimatedBackground client:load />
     <Navbar />
     <slot />
     <style is:global>
