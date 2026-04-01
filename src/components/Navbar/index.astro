@@ -2,137 +2,95 @@
 import GitHubSvg from "../svgs/GitHubSvg.astro"
 import LinkedIn from "../svgs/LinkedIn.astro"
 import GmailSvg from "../svgs/GmailSvg.astro"
-import HighlightText from "../HighlightText.astro"
+
 const socialMedias = [
   {
     icon: GitHubSvg,
     href: "https://github.com/cjtim",
+    label: "GitHub",
   },
   {
     icon: LinkedIn,
     href: "https://www.linkedin.com/in/tim-jinna/",
+    label: "LinkedIn",
   },
   {
     icon: GmailSvg,
     href: "mailto:jinnatim@gmail.com",
+    label: "Email",
   },
 ]
-const navbars = [
-  {
-    label: "Tim Jinna",
-    href: "/",
-  },
-  {
-    label: "Projects",
-    href: "/projects",
-  },
+
+const navLinks = [
+  { label: "Tim Jinna", href: "/", isLogo: true },
+  { label: "Projects", href: "/projects", isLogo: false },
 ]
-const colors = {
-  active: "text-white",
-  inActive: "text-gray-300",
-}
 ---
 
-<nav class="container mx-auto">
-  <div class="flex gap-2" id="btnBar">
-    <div class="mr-auto">
+<header
+  class="sticky top-0 z-50 w-full"
+>
+  <nav class="container mx-auto flex items-center px-4 py-3">
+    <!-- Nav links -->
+    <div class="mr-auto flex items-center gap-1">
       {
-        navbars.map((i, idx) => (
+        navLinks.map((link) => (
           <a
-            href={i.href}
-            onclick={`highlightBtn(${idx})`}
+            href={link.href}
+            data-navlink
+            class:list={[
+              "relative px-3 py-2 transition-colors duration-200",
+              link.isLogo
+                ? "text-lg font-bold text-white"
+                : "text-sm font-medium text-gray-400 hover:text-white",
+            ]}
           >
-            <button
-              id={`navbar-${idx}`}
-              class:list={[
-                `${colors.inActive}`,
-                `hover:opacity-70`,
-                `m-4`,
-              ]}
-            >
-              <HighlightText
-                class={
-                  idx === 0
-                    ? "text-2xl font-bold"
-                    : "text-md font-medium"
-                }
-              >
-                {i.label}
-              </HighlightText>
-            </button>
+            {link.label}
+            {!link.isLogo && (
+              <span
+                data-indicator
+                class="absolute inset-x-3 -bottom-[1px] h-[2px] scale-x-0 rounded-full bg-teal-400 transition-transform duration-300 origin-left"
+              />
+            )}
           </a>
         ))
       }
     </div>
-    <div
-      class="flex flex-wrap items-center gap-4 mx-4"
-    >
+
+    <!-- Social icons -->
+    <div class="flex items-center gap-3">
       {
         socialMedias.map((item) => (
           <a
-            class={`h-8 w-8 fill-white hover:opacity-70`}
             href={item.href}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={item.href}
+            aria-label={item.label}
+            class="flex h-8 w-8 items-center justify-center rounded-md fill-gray-400 text-gray-400 transition-all duration-200 hover:fill-teal-400 hover:text-teal-400 hover:bg-teal-400/10"
           >
             <item.icon />
           </a>
         ))
       }
     </div>
-  </div>
-</nav>
+  </nav>
+</header>
 
-<script
-  type="text/javascript"
-  define:vars={{ colors }}
->
-  function highlightBtn(index) {
-    const elements =
-      document.querySelectorAll(
-        "[id^=navbar]",
-      )
-    for (
-      let i = 0;
-      i < elements.length;
-      i++
-    ) {
-      if (i == index) {
-        elements[i].classList.remove(
-          colors.inActive,
-        )
-        elements[i].classList.add(
-          colors.active,
-        )
+<script>
+  function setActiveLink() {
+    const path = document.location.pathname.split("/").slice(0, 2).join("/") || "/"
+    document.querySelectorAll<HTMLAnchorElement>("a[data-navlink]").forEach((link) => {
+      const indicator = link.querySelector<HTMLElement>("[data-indicator]")
+      const isActive = link.getAttribute("href") === path
+      if (isActive) {
+        link.classList.remove("text-gray-400")
+        link.classList.add("text-white")
+        indicator?.classList.remove("scale-x-0")
       } else {
-        elements[i].classList.add(
-          colors.inActive,
-        )
-        elements[i].classList.remove(
-          colors.active,
-        )
+        indicator?.classList.add("scale-x-0")
       }
-    }
-
-    console.log(
-      document.location.pathname,
-    )
+    })
   }
 
-  const curretBtn =
-    document.querySelector(
-      `a[href="${document.location.pathname
-        .split("/")
-        .slice(0, 2)
-        .join("/")}"] > button`,
-    )
-  if (curretBtn) {
-    curretBtn.classList.add(
-      colors.active,
-    )
-    curretBtn.classList.remove(
-      colors.inActive,
-    )
-  }
+  setActiveLink()
 </script>
