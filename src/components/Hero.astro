@@ -22,25 +22,50 @@ import ButtonCenter from "./ButtonCenter.astro"
       </h2>
       <div
         class:list={[
-          "transition",
-          "hover:scale-105",
-          "overflow-hidden py-4 md:animate-appearSlide md:whitespace-nowrap md:opacity-0",
-          "group cursor-pointer",
+          "py-4 md:animate-appearSlide md:whitespace-nowrap md:opacity-0",
         ]}
       >
         <a
           href="/projects"
           class:list={[
-            "rounded-3xl",
-            "bg-blue-100",
-            "px-5",
+            "group",
+            "inline-flex",
+            "items-center",
+            "gap-2",
+            "rounded-full",
+            "border",
+            "border-teal-500/40",
+            "bg-teal-500/10",
+            "px-6",
             "py-3",
             "text-sm",
-            "dark:text-black",
-            "dark:hover:bg-blue-100",
+            "font-medium",
+            "text-teal-300",
+            "backdrop-blur-sm",
+            "transition-all",
+            "duration-300",
+            "hover:border-teal-400/70",
+            "hover:bg-teal-500/20",
+            "hover:text-teal-200",
+            "hover:shadow-[0_0_20px_rgba(20,184,166,0.25)]",
+            "hover:scale-105",
           ]}
         >
-          Checkout my projects! 👉
+          Checkout my projects!
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="transition-transform duration-300 group-hover:translate-x-1"
+          >
+            <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+          </svg>
         </a>
       </div>
     </div>
